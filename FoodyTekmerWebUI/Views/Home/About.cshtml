@@ -1,0 +1,23 @@
+﻿@model List<FoodyTekmerEntityLayer.Concrete.About>
+@{
+    ViewData["Title"] = "About";
+    Layout = "~/Views/Shared/_LayoutGeneral.cshtml";
+}
+
+@await Component.InvokeAsync("AboutMediumComponentPartial")
+
+    <div class="container-fluid bg-light bg-icon py-6">
+        <div class="container">
+            <div class="owl-carousel testimonial-carousel wow fadeInUp"
+                 data-wow-delay="0.1s">
+            @foreach (var x in Model)
+            {
+                <div class="testimonial-item position-relative bg-white p-3 mt-2">
+                    <img style="height:250px; width:100% !important" class="mb-3" src="@x.ImageUrl" alt="resim" />
+                    <p>@x.Description</p>
+                </div>
+            }
+            </div>
+        </div>
+    </div>
+

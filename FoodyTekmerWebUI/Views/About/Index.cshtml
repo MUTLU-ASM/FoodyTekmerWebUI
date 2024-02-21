@@ -1,0 +1,47 @@
+﻿@using X.PagedList
+@using X.PagedList.Mvc.Core
+@using X.PagedList.Web.Common
+@model IPagedList<FoodyTekmerEntityLayer.Concrete.About>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 style="pointer-events: none; user-select: none;">-- Hakkımda Ayar Liste</h2>
+
+<table class="table table-bordered table-hover">
+    <tr>
+        <th>#</th>
+        <th>Açıklama</th>
+        <th>İçerik Resmi</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <th>@x.AboutId</th>
+            <td>@x.Description</td>
+             <td><img style="width:150px;" src="@x.ImageUrl" alt="Image" /></td>
+            <td><a href="/About/DeleteAbout/@x.AboutId" class="btn btn-danger mt-4">Sil</a></td>
+            <td><a href="/About/UpdateAbout/@x.AboutId" class="btn btn-success mt-4">Güncelle</a></td>
+        </tr>
+    }
+</table>
+
+<div class="pull-right">
+                @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index",
+                   new
+                        {
+                            page
+                 }),
+                 new PagedListRenderOptionsBase
+                 {
+                     LiElementClasses = new string[] { "page-item" },
+                     PageClasses = new string[] { "page-link" },
+                     Display = PagedListDisplayMode.IfNeeded
+
+                      })
+            </div>
+
+<a href="/About/CreateAbout" class="btn btn-primary">Yeni Kısım Ekle</a>

@@ -1,0 +1,44 @@
+﻿@using X.PagedList
+@using X.PagedList.Mvc.Core
+@using X.PagedList.Web.Common
+@model IPagedList<FoodyTekmerEntityLayer.Concrete.Category>
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+<h2 style="pointer-events: none; user-select: none;">-- Kategori Listesi</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Adı</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.CategoryId</td>
+            <td>@x.CategoryName</td>
+            <td><a href="/Category/DeleteCategory/@x.CategoryId" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Category/UpdateCategory/@x.CategoryId" class="btn btn-success">Güncelle</a></td>
+        </tr>
+    }
+
+</table>
+<div class="pull-right">
+    @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index",
+            new
+            {
+                page
+            }),
+            new PagedListRenderOptionsBase
+    {
+        LiElementClasses = new string[] { "page-item" },
+        PageClasses = new string[] { "page-link" },
+        Display = PagedListDisplayMode.IfNeeded
+
+    })
+</div>
+<a href="/Category/CreateCategory" class="btn btn-primary">Yeni Kategori Girişi</a>

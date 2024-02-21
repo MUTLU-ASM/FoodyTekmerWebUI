@@ -1,0 +1,60 @@
+﻿@{
+    Layout = null;
+}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Sidebar 03</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/sidebar-03/css/style.css">
+</head>
+<body>
+
+    <div class="wrapper d-flex align-items-stretch">
+        <nav id="sidebar" class="active">
+            <div class="custom-menu">
+                <button type="button" id="sidebarCollapse" class="btn btn-primary">
+                    <i class="fa fa-bars"></i>
+                    <span class="sr-only">Toggle Menu</span>
+                </button>
+            </div>
+            <div class="p-4">
+                <h1 class="text-white" style="pointer-events: none; user-select: none;">Foody</h1>
+                <ul class="list-unstyled components mb-5">
+                    <li>
+                        <a href="/Home/Index" class="fs-5"><span class="fa fa-home mr-3"></span> Siteye Git</a>
+                    </li>
+                    <li>
+                        <a href="/Product/Index" class="fs-5"><span class="fa fa-user mr-3"></span> Ürünler</a>
+                    </li>
+                    <li>
+                        <a href="/Category/Index" class="fs-5"><span class="fa fa-briefcase mr-3"></span> Kategoriler</a>
+                    </li>
+                    <li>
+                        <a href="/Testimonial/Index" class="fs-5"><span class="fa fa-comment mr-3"></span> Yorumlar</a>
+                    </li>
+                    <li>
+                        <a href="/About/Index" class="fs-5"><span class="fa fa-medium mr-3"></span> Hakkımda</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Page Content  -->
+        <div id="content" class="p-4 p-md-5 pt-5">
+            @RenderBody()
+        </div>
+    </div>
+
+    <script src="~/sidebar-03/js/jquery.min.js"></script>
+    <script src="~/sidebar-03/js/popper.js"></script>
+    <script src="~/sidebar-03/js/bootstrap.min.js"></script>
+    <script src="~/sidebar-03/js/main.js"></script>
+</body>
+</html>

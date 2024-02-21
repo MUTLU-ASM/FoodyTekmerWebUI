@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\sidebar-03\.DS_Store" />
+    <None Include="wwwroot\sidebar-03\css\.DS_Store" />
+    <None Include="wwwroot\sidebar-03\css\bootstrap\.DS_Store" />
+    <None Include="wwwroot\sidebar-03\css\bootstrap\mixins\.DS_Store" />
+    <None Include="wwwroot\sidebar-03\fonts\.DS_Store" />
+    <None Include="wwwroot\sidebar-03\images\.DS_Store" />
+    <None Include="wwwroot\sidebar-03\js\.DS_Store" />
+    <None Include="wwwroot\sidebar-03\scss\.DS_Store" />
+    <None Include="wwwroot\sidebar-03\scss\bootstrap\.DS_Store" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.27">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.16" />
+    <PackageReference Include="X.PagedList.Mvc.Core" Version="8.0.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FoodyTekmerBusinessLayer\FoodyTekmerBusinessLayer.csproj" />
+    <ProjectReference Include="..\FoodyTekmerDataAccessLayer\FoodyTekmerDataAccessLayer.csproj" />
+    <ProjectReference Include="..\FoodyTekmerEntityLayer\FoodyTekmerEntityLayer.csproj" />
+  </ItemGroup>
+
+</Project>

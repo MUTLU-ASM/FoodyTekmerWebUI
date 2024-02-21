@@ -1,0 +1,14 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutGeneral.cshtml";
+}
+<!DOCTYPE html>
+<html lang="en">
+@await Component.InvokeAsync("HeadComponentPartial")
+<body>
+    @await Component.InvokeAsync("NavbarComponentPartial")
+    @Html.Partial("PartialHeader")
+    @await Component.InvokeAsync("ProductListComponentPartial")
+    @await Component.InvokeAsync("ScriptComponentPartial")
+</body>
+
+</html>
