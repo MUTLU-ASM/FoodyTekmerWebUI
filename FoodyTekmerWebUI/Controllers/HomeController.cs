@@ -15,5 +15,9 @@ namespace FoodyTekmerWebUI.Controllers
             var values = context.Abouts.ToList();
             return View(values);
         }
+        public IActionResult Contact()
+        {    
+            return View();
+        }
     }
 }
