@@ -14,7 +14,7 @@ namespace FoodyTekmerWebUI.ViewComponents
 
         public IViewComponentResult Invoke()
         {
-            var values = _productService.TGetAllList().Where(x=>x.Status==true).Take(6).ToList();
+            var values = _productService.TGetAllList().Where(x=>x.Status==true).Take(8).ToList();
             return View(values);
         }
     }

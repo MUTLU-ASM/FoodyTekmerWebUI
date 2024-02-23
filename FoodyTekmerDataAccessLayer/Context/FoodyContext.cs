@@ -10,14 +10,21 @@ namespace FoodyTekmerDataAccessLayer.Context
 {
     public class FoodyContext:DbContext
     {
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer("Server=DESKTOP-SBTQ48V\\SQLEXPRESS;initial catalog=FoodyTekmerDb;integrated security=true;");
-        }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<Testimonial> Testimonials { get; set; }
         public DbSet<About> Abouts { get; set; }
         public DbSet<Contact> Contacts { get; set; }
+        
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer("Server=DESKTOP-SBTQ48V\\SQLEXPRESS;initial catalog=FoodyTekmerDb;integrated security=true;");
+        }
+        //protected override void OnModelCreating(ModelBuilder modelBuilder)
+        //{
+        //    modelBuilder.Entity<Product>()
+        //        .HasOne(c => c.Category)
+        //        .WithMany(p => p.Products);
+        //}
     }
 }
