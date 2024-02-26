@@ -9,53 +9,59 @@
 <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
 
 <h2 style="pointer-events: none; user-select: none;">-- Ürün Listesi</h2>
+<div class="card">
+    <div class="card-body">
+        <div class="table-responsive">
 
-<table class="table table-bordered table-hover">
-    <tr>
-        <th>#</th>
-        <th>Ürün Adı</th>
-        <th>Kategori</th>
-        <th>Eski Fiyat</th>
-        <th>Yeni Fiyat</th>
-        <th>Durum</th>
-        <th>Sil</th>
-        <th>Güncelle</th>
-    </tr>
-    @foreach (var x in Model)
-    {
-        <tr>
-            <th>@x.ProductId</th>
-            <td>@x.Name</td>
-            <td>@x.CategoryId</td>
-            <td>@x.OldPrice</td>
-            <td>@x.NewPrice</td>
-            <td>
-                @if (x.Status == true)
+            <table class="table table-bordered table-hover">
+                <tr>
+                    <th>#</th>
+                    <th>Ürün Adı</th>
+                    <th>Kategori</th>
+                    <th>Eski Fiyat</th>
+                    <th>Yeni Fiyat</th>
+                    <th>Durum</th>
+                    <th>Sil</th>
+                    <th>Güncelle</th>
+                </tr>
+                @foreach (var x in Model)
                 {
-                    <span class="bg-success rounded p-1 text-white">Aktif</span>
+                    <tr>
+                        <th>@x.ProductId</th>
+                        <td>@x.Name</td>
+                        <td>@x.CategoryId</td>
+                        <td>@x.OldPrice</td>
+                        <td>@x.NewPrice</td>
+                        <td>
+                            @if (x.Status == true)
+                            {
+                                <span class="bg-success rounded p-1 text-white">Aktif</span>
+                            }
+                            else
+                            {
+                                <span class="bg-danger rounded p-1 text-white">Pasif</span>
+                            }
+                        </td>
+                        <td><a href="/Product/DeleteProduct/@x.ProductId" class="btn btn-danger">Sil</a></td>
+                        <td><a href="/Product/UpdateProduct/@x.ProductId" class="btn btn-success">Güncelle</a></td>
+                    </tr>
                 }
-                else
+            </table>
+            <div class="pull-right">
+                @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index",
+                         new
+                         {
+                             page
+                         }),
+                         new PagedListRenderOptionsBase
                 {
-                    <span class="bg-danger rounded p-1 text-white">Pasif</span>
-                }
-            </td>
-            <td><a href="/Product/DeleteProduct/@x.ProductId" class="btn btn-danger">Sil</a></td>
-            <td><a href="/Product/UpdateProduct/@x.ProductId" class="btn btn-success">Güncelle</a></td>
-        </tr>
-    }
-</table>
-<div class="pull-right">
-    @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index",
-            new
-            {
-                page
-            }),
-            new PagedListRenderOptionsBase
-    {
-        LiElementClasses = new string[] { "page-item" },
-        PageClasses = new string[] { "page-link" },
-        Display = PagedListDisplayMode.IfNeeded
+                    LiElementClasses = new string[] { "page-item" },
+                    PageClasses = new string[] { "page-link" },
+                    Display = PagedListDisplayMode.IfNeeded
 
-    })
+                })
+            </div>
+            <a href="/Product/CreateProduct" class="btn btn-primary">Yeni Ürün Girişi</a>
+        </div>
+    </div>
 </div>
-<a href="/Product/CreateProduct" class="btn btn-primary">Yeni Ürün Girişi</a>

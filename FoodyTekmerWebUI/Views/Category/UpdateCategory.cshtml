@@ -6,17 +6,24 @@
 
 
 <div class="container">
-        <br />
-    <h2 style="pointer-events: none; user-select: none;">Kategori Güncelleme Sayfası</h2>
     <br />
-    <form method="post">
-        <p>ID</p>
-        <input type="type" readonly asp-for="CategoryId" class="form-control" />
-        <br />
-        <p>Ad</p>
-        <input type="type" asp-for="CategoryName" class="form-control" />
-        <br />
-        <button class="btn btn-success">Güncellemeyi Kaydet</button>
-        <a href="/Category/Index" class="btn btn-primary float-right">Vazgeç</a>
-    </form>
+    <h2 style="pointer-events: none; user-select: none;">Kategori Güncelleme Sayfası</h2>
+
+    <div class="card">
+        <div class="card-body">
+            <div class="table-responsive">
+                <br />
+                <form method="post">
+                    <p>ID</p>
+                    <input type="type" readonly asp-for="CategoryId" class="form-control" />
+                    <br />
+                    <p>Ad</p>
+                    <input type="type" asp-for="CategoryName" class="form-control" />
+                    <br />
+                    <button class="btn btn-success">Güncellemeyi Kaydet</button>
+                    <a href="/Category/Index" class="btn btn-primary float-right">Vazgeç</a>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>

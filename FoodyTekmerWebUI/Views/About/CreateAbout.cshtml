@@ -5,14 +5,19 @@
 }
 
 <h1 style="pointer-events: none; user-select: none;">Hakkımda Kısmı Ekleme Sayfası</h1>
-
-<form method="post">
-    <label>Açıklama</label>
-    <input type="text" class="form-control border" asp-for="Description"></input>
-    <br />
-    <label>Görsel Url</label>
-    <input type="text" class="form-control border" asp-for="ImageUrl"></input>
-    <br />
-    <button class="btn btn-info">Ürünü Kaydet</button>
-    <a href="/About/Index" class="btn btn-primary float-right">Vazgeç</a>
-</form>
+<div class="card">
+    <div class="card-body">
+        <div class="table-responsive">
+            <form method="post">
+                <label>Açıklama</label>
+                <input type="text" class="form-control border" asp-for="Description"></input>
+                <br />
+                <label>Görsel Url</label>
+                <input type="text" class="form-control border" asp-for="ImageUrl"></input>
+                <br />
+                <button class="btn btn-info">Ürünü Kaydet</button>
+                <a href="/About/Index" class="btn btn-primary float-right">Vazgeç</a>
+            </form>
+        </div>
+    </div>
+</div>

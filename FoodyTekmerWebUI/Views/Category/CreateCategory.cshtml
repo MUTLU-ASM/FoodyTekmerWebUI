@@ -4,18 +4,24 @@
 }
 
 <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-<form method="post">
+<div class="card">
+    <div class="card-body">
+        <div class="table-responsive">
+            <form method="post">
 
-    <div class="container">
+                <div class="container">
 
-        <h2 style="pointer-events: none; user-select: none;">Kategori Ekleme Sayfası</h2>
-        <br />
-        <label>Kategori Adını Giriniz</label>
-        <br />
-        <input type="type" asp-for="CategoryName" class="form-control" />
-        <br />
-        <button class="btn btn-info">Kategori Ekle</button>
-        <a href="/Category/Index" class="btn btn-primary float-right">Vazgeç</a>
+                    <h2 style="pointer-events: none; user-select: none;">Kategori Ekleme Sayfası</h2>
+                    <br />
+                    <label>Kategori Adını Giriniz</label>
+                    <br />
+                    <input type="type" asp-for="CategoryName" class="form-control" />
+                    <br />
+                    <button class="btn btn-info">Kategori Ekle</button>
+                    <a href="/Category/Index" class="btn btn-primary float-right">Vazgeç</a>
+                </div>
+
+            </form>
+        </div>
     </div>
-
-</form>
+</div>

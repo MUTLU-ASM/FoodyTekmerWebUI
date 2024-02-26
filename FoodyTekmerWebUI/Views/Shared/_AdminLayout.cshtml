@@ -5,66 +5,121 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Sidebar 03</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Vivo - Responsive Bootstrap 5 Dashboard Template">
+    <meta name="author" content="Bootstrap Gallery" />
+    <link rel="canonical" href="https://www.bootstrap.gallery/">
+    <meta property="og:url" content="https://www.bootstrap.gallery">
+    <meta property="og:title" content="Admin Templates - Dashboard Templates | Bootstrap Gallery">
+    <meta property="og:description" content="Marketplace for Bootstrap Admin Dashboards">
+    <meta property="og:type" content="Website">
+    <meta property="og:site_name" content="Bootstrap Gallery">
+    <link rel="shortcut icon" href="~/foody2-1.0.0/img/icon-1.png">
+    <title>Vivo Admin Template - Admin Dashboard</title>
+    <link rel="stylesheet" href="/vivo/design/assets/css/animate.css">
+    <link rel="stylesheet" href="/vivo/design/assets/fonts/bootstrap/bootstrap-icons.css">
+    <link rel="stylesheet" href="/vivo/design/assets/css/main.min.css">
+    <link rel="stylesheet" href="/vivo/design/assets/vendor/overlay-scroll/OverlayScrollbars.min.css">
 
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="~/sidebar-03/css/style.css">
 </head>
+
 <body>
-
-    <div class="wrapper d-flex align-items-stretch">
-        <nav id="sidebar" class="active">
-            <div class="custom-menu">
-                <button type="button" id="sidebarCollapse" class="btn btn-primary">
-                    <i class="fa fa-bars"></i>
-                    <span class="sr-only">Toggle Menu</span>
-                </button>
+    <div class="page-wrapper">
+        <nav class="sidebar-wrapper">
+            <div class="sidebar-brand">
+                <a href="/AdminHome/Index" class="logo">
+                    <img src="~/foody2-1.0.0/img/logo-1.jpg" alt="Vivo Admin Dashboard" />
+                </a>
             </div>
-            <div class="p-4">
-                <h1 class="text-white" style="pointer-events: none; user-select: none;">Foody</h1>
-                <ul class="list-unstyled components mb-5">
-
-                    <li>
-                        <a href="/AdminHome/Index" class="fs-5"><span class="fa fa-home mr-3"></span> Ana Sayfa</a>
-                    </li>
-                    <li>
-                        <a href="/Product/Index" class="fs-5"><span class="fa fa-user mr-3"></span> Ürünler</a>
-                    </li>
-                    <li>
-                        <a href="/Category/Index" class="fs-5"><span class="fa fa-briefcase mr-3"></span> Kategoriler</a>
-                    </li>
-                    <li>
-                        <a href="/Testimonial/Index" class="fs-5"><span class="fa fa-comment mr-3"></span> Yorumlar</a>
-                    </li>
-                    <li>
-                        <a href="/Contact/Index" class="fs-5"><span class="fa fa-envelope mr-3"></span> Mesajlar</a>
-                    </li>
-                    <li>
-                        <a href="/About/Index" class="fs-5"><span class="fa fa-medium mr-3"></span> Hakkımda</a>
-                    </li>
-                    <li class="border-bottom mt-3 mb-3">
-                       
-                    </li>
-                    <li>
-                        <a href="/Home/Index" class="fs-5"><span class="	fa fa-circle-o mr-3"></span> Siteye Git</a>
-                    </li>
-                </ul>
+            <div class="sidebar-menu">
+                <div class="sidebarMenuScroll">
+                    <ul>
+                        <li class="sidebar">
+                            <a href="/AdminHome/Index">
+                                <i class="bi bi-house"></i>
+                                <span class="menu-text"> Ana Sayfa</span>
+                            </a>
+                        </li>
+                        <li class="sidebar">
+                            <a href="/Product/Index">
+                                <i class="bi bi-handbag"></i>
+                                <span class="menu-text">Ürünler</span>
+                            </a>
+                        </li>
+                        <li class="sidebar">
+                            <a href="/Category/Index">
+                                <i class="bi bi-tag"></i>
+                                <span class="menu-text">Kategoriler</span>
+                            </a>
+                        </li>
+                        <li class="sidebar">
+                            <a href="/Testimonial/Index">
+                                <i class="bi bi-chat-quote"></i>
+                                <span class="menu-text">Yorumlar</span>
+                            </a>
+                        </li>
+                        <li class="sidebar">
+                            <a href="/Contact/Index">
+                                <i class="bi bi-chat-dots"></i>
+                                <span class="menu-text">Mesajlar</span>
+                            </a>
+                        </li>
+                        <li class="sidebar">
+                            <a href="/About/Index">
+                                <i class="bi bi-card-text"></i>
+                                <span class="menu-text">Hakkımda</span>
+                            </a>
+                        </li>
+                        <li class="sidebar">
+                            <a href="/Home/Index">
+                                <i class="bi bi-globe"></i>
+                                <span class="menu-text">Siteye Git</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </nav>
+        <div class="main-container">
+            <div class="page-header">
+                <div class="header-actions-container">
+                    <ul class="header-actions">
+                        <li class="dropdown">
+                            <a href="#" id="userSettings" class="user-settings" data-toggle="dropdown" aria-haspopup="true">
+                                <span class="user-name d-none d-md-block">Asım Mutlu</span>
+                                <span class="avatar">
+                                    <img src="~/foody2-1.0.0/img/testimonial-2.jpg" alt="Admin Templates">
+                                    <span class="status online"></span>
+                                </span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="userSettings">
+                                <div class="header-profile-actions">
+                                    <a href="profile.html">Profil</a>
+                                    <a href="account-settings.html">Ayarlar</a>
+                                    <a href="login.html">Çıkış Yap</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="content-wrapper-scroll">
+                <div class="content-wrapper">
+                    @RenderBody()
+                </div>
+            </div>
 
-        <!-- Page Content  -->
-        <div id="content" class="p-4 p-md-5 pt-5">
-            @RenderBody()
         </div>
     </div>
+    <script src="/vivo/design/assets/js/jquery.min.js"></script>
+    <script src="/vivo/design/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="/vivo/design/assets/js/modernizr.js"></script>
+    <script src="/vivo/design/assets/js/moment.js"></script>
+    <script src="/vivo/design/assets/vendor/overlay-scroll/jquery.overlayScrollbars.min.js"></script>
+    <script src="/vivo/design/assets/vendor/overlay-scroll/custom-scrollbar.js"></script>
+    <script src="/vivo/design/assets/js/main.js"></script>
 
-    <script src="~/sidebar-03/js/jquery.min.js"></script>
-    <script src="~/sidebar-03/js/popper.js"></script>
-    <script src="~/sidebar-03/js/bootstrap.min.js"></script>
-    <script src="~/sidebar-03/js/main.js"></script>
 </body>
+
 </html>

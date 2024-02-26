@@ -5,23 +5,29 @@
 }
 
 <h1 style="pointer-events: none; user-select: none;">Ürün Güncelleme Sayfası</h1>
+<div class="card">
+    <div class="card-body">
+        <div class="table-responsive">
 
-<form method="post">
-    <label>ID</label>
-    <input type="text" class="form-control border" asp-for="ProductId" readonly></input>
-    <br />
-    <label>Adı</label>
-    <input type="text" class="form-control border" asp-for="Name"></input>
-    <br />
-    <label>Görsel Url</label>
-    <input type="text" class="form-control border" asp-for="ImageUrl"></input>
-    <br />
-    <label>Eski Fiyat</label>
-    <input type="text" class="form-control border" asp-for="OldPrice"></input>
-    <br />
-    <label>Yeni Fiyat</label>
-    <input type="text" class="form-control border" asp-for="NewPrice"></input>
-    <br />
-    <button class="btn btn-info">Ürünü Güncelle</button>
-    <a href="/Product/Index" class="btn btn-primary float-right">Vazgeç</a>
-</form>
+            <form method="post">
+                <label>ID</label>
+                <input type="text" class="form-control border" asp-for="ProductId" readonly></input>
+                <br />
+                <label>Adı</label>
+                <input type="text" class="form-control border" asp-for="Name"></input>
+                <br />
+                <label>Görsel Url</label>
+                <input type="text" class="form-control border" asp-for="ImageUrl"></input>
+                <br />
+                <label>Eski Fiyat</label>
+                <input type="text" class="form-control border" asp-for="OldPrice"></input>
+                <br />
+                <label>Yeni Fiyat</label>
+                <input type="text" class="form-control border" asp-for="NewPrice"></input>
+                <br />
+                <button class="btn btn-info">Ürünü Güncelle</button>
+                <a href="/Product/Index" class="btn btn-primary float-right">Vazgeç</a>
+            </form>
+        </div>
+    </div>
+</div>
