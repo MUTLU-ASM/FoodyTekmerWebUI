@@ -11,14 +11,16 @@
         <th>Konu</th>
         <th>Mesaj</th>
         <th>Mail</th>
+        <th>Tarih</th>
     </tr>
     @foreach (var x in Model)
     {
         <tr>
-            <td style="width:100px;">@x.NameSurname</td>
+            <td style="width:120px;">@x.NameSurname</td>
             <td>@x.Title</td>
-            <td style="width:500px;">@x.Message</td>
+            <td >@x.Message</td>
             <td>@x.Mail</td>
+            <td>@x.dateTime.ToShortDateString()</td>
         </tr>
     }
 </table>

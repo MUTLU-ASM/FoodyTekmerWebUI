@@ -18,6 +18,7 @@
                     <th>Mail</th>
                     <th>Konu Başlığı</th>
                     <th>Mesaj İçeriği</th>
+                    <th>Gönerilme Tarihi</th>
                     <th>Sil</th>
                 </tr>
                 @foreach (var x in Model)
@@ -28,6 +29,7 @@
                         <td>@x.Mail</td>
                         <td>@x.Title</td>
                         <td>@x.Message</td>
+                        <td>@x.dateTime.ToShortDateString()</td>
                         <td><a href="/Contact/DeleteContact/@x.ContactId" class="btn btn-danger mt-4">Sil</a></td>
                     </tr>
                 }

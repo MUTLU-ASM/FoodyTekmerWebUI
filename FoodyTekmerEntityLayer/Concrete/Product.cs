@@ -14,6 +14,7 @@ namespace FoodyTekmerEntityLayer.Concrete
         public string ImageUrl { get; set; }
         public decimal OldPrice { get; set; }
         public decimal NewPrice { get; set; }
+        public int Stock { get; set; }
         public bool Status { get; set; }
         public int CategoryId { get; set; }
 

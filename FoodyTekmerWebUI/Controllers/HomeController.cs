@@ -1,4 +1,6 @@
-﻿using FoodyTekmerDataAccessLayer.Context;
+﻿using FoodyTekmerBusinessLayer.Abstract;
+using FoodyTekmerDataAccessLayer.Context;
+using FoodyTekmerEntityLayer.Concrete;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FoodyTekmerWebUI.Controllers
@@ -14,10 +16,6 @@ namespace FoodyTekmerWebUI.Controllers
         {
             var values = context.Abouts.ToList();
             return View(values);
-        }
-        public IActionResult Contact()
-        {    
-            return View();
         }
     }
 }

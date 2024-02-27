@@ -13,5 +13,6 @@ namespace FoodyTekmerEntityLayer.Concrete
         public string Mail { get; set; }
         public string Title { get; set; }
         public string Message { get; set; }
+        public DateTime dateTime { get; set; }
     }
 }
