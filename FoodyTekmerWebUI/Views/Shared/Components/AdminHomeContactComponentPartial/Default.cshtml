@@ -1,0 +1,25 @@
+﻿@model List<FoodyTekmerEntityLayer.Concrete.Contact>
+@{
+    Layout = null;
+}
+
+<h4 class="text-warning border-bottom border-warning">Mesajlar</h4>
+<table class="table table-hover">
+    <tr>
+
+        <th>Ad Soyad</th>
+        <th>Konu</th>
+        <th>Mesaj</th>
+        <th>Mail</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td style="width:100px;">@x.NameSurname</td>
+            <td>@x.Title</td>
+            <td style="width:500px;">@x.Message</td>
+            <td>@x.Mail</td>
+        </tr>
+    }
+</table>
+<a href="Contact/Index" class="btn btn-primary">Daha fazlası >></a>

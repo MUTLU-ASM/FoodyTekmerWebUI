@@ -1,0 +1,18 @@
+﻿@model List<FoodyTekmerEntityLayer.Concrete.Category>
+@{
+    Layout = null;
+}
+
+<h4 class="text-info border-bottom border-info">Kategori</h4>
+<table class="table table-hover ">
+    <tr>
+        <th>Kategori</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.CategoryName</td>
+        </tr>
+    }
+</table>
+    <a href="Category/Index" class="btn btn-primary">Daha fazlası >></a>

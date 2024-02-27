@@ -14,14 +14,3 @@
         }
     </ul>
 </div>
-<div id="selectedIdDisplay">1</div>
-<script>
-    $(document).ready(function () {
-        $(".nav-item .btn").click(function (e) {
-            e.preventDefault();
-            var selectedId = $(this).attr("id");
-            // Seçilen ID'yi HTML elementine yazdırma
-            $("#selectedIdDisplay").text(selectedId);
-        });
-    });
-</script>

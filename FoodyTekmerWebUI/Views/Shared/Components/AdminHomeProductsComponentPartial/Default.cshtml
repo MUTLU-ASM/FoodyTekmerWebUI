@@ -1,0 +1,38 @@
+﻿@model List<FoodyTekmerEntityLayer.Concrete.Product>
+
+@{
+    Layout = null;
+}
+
+<h4 class="text-info border-bottom border-info">Ürünler</h4>
+<table class="table table-hover">
+    <tr>
+        <th>Ürün</th>
+        <th>Kategori</th>
+        <th>Resim</th>
+        <th>Eski Fiyat</th>
+        <th>Yeni Fİyat</th>
+        <th>Durum</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.Name</td>
+            <td>@x.CategoryId</td>
+            <td><img style="width:30px; border-radius:50px;" src="@x.ImageUrl" alt="@x.Name" /></td>
+            <td>@x.OldPrice</td>
+            <td>@x.NewPrice</td>
+            <td>
+                @if (x.Status == true)
+                {
+                    <span class="bg-success rounded p-1 text-white">✓</span>
+                }
+                else
+                {
+                    <span class="bg-danger rounded p-1 text-white">X</span>
+                }
+            </td>
+        </tr>
+    }
+</table>
+<a href="Product/Index" class="btn btn-primary">Daha fazlası >></a>

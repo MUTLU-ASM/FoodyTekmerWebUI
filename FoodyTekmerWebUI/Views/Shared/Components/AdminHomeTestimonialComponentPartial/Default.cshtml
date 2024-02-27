@@ -1,0 +1,19 @@
+﻿@model List<FoodyTekmerEntityLayer.Concrete.Testimonial>
+@{
+    Layout = null;
+}
+
+
+@foreach (var x in Model)
+{
+    <div class="col-xxl-3 col-md-4 col-sm-6 col-12">
+        <div class="card gradient-yellow">
+            <div class="contact-card">
+                <img src="@x.ImageUrl" alt="Vivo Admin" class="contact-avatar">
+                <h5>@x.NameSurname</h5>
+                <p style="height:80px">@x.Description</p>
+            </div>
+        </div>
+
+    </div>
+}

@@ -1,0 +1,19 @@
+﻿@model List<FoodyTekmerEntityLayer.Concrete.About>
+@{
+    Layout = null;
+}
+
+
+<h4 class="text-danger border-bottom border-danger">Hakkımda Kısmı</h4>
+<table class="table table-striped table-hover">
+    @foreach (var x in Model)
+    {
+        <div class="d-flex position-relative mt-3 p-2 text-white rounded" style="background-color:#bf4342">
+            <img src="@x.ImageUrl" class="flex-shrink-0 me-3" style="height:70px; width:100px" alt="...">
+            <div class="ml-3">
+                <p>@x.Description</p>
+            </div>
+        </div>
+    }
+</table>
+
