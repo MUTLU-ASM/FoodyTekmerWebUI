@@ -29,7 +29,7 @@
         <nav class="sidebar-wrapper">
             <div class="sidebar-brand">
                 <a href="/AdminHome/Index" class="logo">
-                    <img src="~/foody2-1.0.0/img/logo-1.jpg" alt="Vivo Admin Dashboard" />
+                    <img src="~/foody2-1.0.0/img/logo-1.jpg" alt="Admin Dashboard" />
                 </a>
             </div>
             <div class="sidebar-menu">
@@ -96,6 +96,10 @@
         <div class="main-container">
             <div class="page-header">
                 <div class="header-actions-container">
+                    <a href="/Contact/Index" type="button" class="btn btn-default position-relative">
+                        <i class="bi bi-envelope fs-2"></i>
+                        <span class="position-absolute top-0 start-80 translate-middle badge rounded-pill shade-secondary">+@ViewBag.mailTime</span>
+                    </a>
                     <ul class="header-actions">
                         <li class="dropdown">
                             <a href="#" id="userSettings" class="user-settings" data-toggle="dropdown" aria-haspopup="true">

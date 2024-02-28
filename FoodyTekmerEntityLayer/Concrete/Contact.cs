@@ -14,5 +14,6 @@ namespace FoodyTekmerEntityLayer.Concrete
         public string Title { get; set; }
         public string Message { get; set; }
         public DateTime dateTime { get; set; }
+        public bool Status { get; set; }
     }
 }

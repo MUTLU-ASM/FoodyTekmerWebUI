@@ -19,23 +19,35 @@
                     <th>Konu Başlığı</th>
                     <th>Mesaj İçeriği</th>
                     <th>Gönerilme Tarihi</th>
+                    <th>Durum</th>
+                    <th>Detay</th>
                     <th>Sil</th>
                 </tr>
                 @foreach (var x in Model)
                 {
                     <tr>
                         <th>@x.ContactId</th>
-                        <td>@x.NameSurname</td>
+                        <td style="width:110px">@x.NameSurname</td>
                         <td>@x.Mail</td>
                         <td>@x.Title</td>
                         <td>@x.Message</td>
                         <td>@x.dateTime.ToShortDateString()</td>
-                        <td><a href="/Contact/DeleteContact/@x.ContactId" class="btn btn-danger mt-4">Sil</a></td>
+                        <td>
+                            @if(@x.Status==true){
+                                <i class="bi bi-eye-fill fs-4 m-2"></i>
+                            }
+                            else
+                            {
+                                <i class="bi bi-eye fs-4 m-2"></i>
+                            }
+                        </td>
+                        <td><a href="/Contact/UpdateContact/@x.ContactId" class="btn btn-secondary"><i class="bi bi-book"></i></a</td>
+                        <td><a href="/Contact/DeleteContact/@x.ContactId" class="btn btn-danger">Sil</a></td>
                     </tr>
                 }
             </table>
 
-            <div class="pull-right">
+            <div class="pull-right d-flex">
                 @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index",
                          new
                          {
@@ -48,6 +60,9 @@
                     Display = PagedListDisplayMode.IfNeeded
 
                 })
+                <div class="m-2">
+                <i class="bi bi-eye"></i> Okunmadı &nbsp;&nbsp; <i class="bi bi-eye-fill"></i> Okundu
+                </div>
             </div>
         </div>
     </div>

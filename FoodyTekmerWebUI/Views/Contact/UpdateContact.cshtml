@@ -1,0 +1,109 @@
+﻿@model FoodyTekmerEntityLayer.Concrete.Contact
+@{
+    ViewData["Title"] = "UpdateContact";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<form method="post">
+
+    <div style="display: none;">
+        <input type="text" class="form-control border" asp-for="ContactId" readonly>
+        <input type="text" class="form-control border" asp-for="NameSurname" readonly>
+        <input type="text" class="form-control border" asp-for="Mail" readonly>
+        <input type="text" class="form-control border" asp-for="Title" readonly>
+        <input type="text" class="form-control border" asp-for="Message" readonly>
+        <input type="text" class="form-control border" asp-for="dateTime" readonly>
+        <input type="text" class="form-control border" asp-for="dateTime" readonly>
+        <input type="text" class="form-control border" asp-for="Status" readonly>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12 col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Mesaj Güncelleme Sayfası</h4>
+                </div>
+                <div class="card-body">
+                    <div class="invoice-container">
+                        <div class="invoice-header">
+                            <!-- Row start -->
+                            <div class="row justify-content-between">
+                                <div class="col-xl-5 col-lg-5 col-md-5 col-sm-5 col-12">
+                                    <a href="index.html" class="invoice-logo">
+                                        <img src="~/foody2-1.0.0/img/logo-1.jpg" alt="Admin Dashboard">
+                                    </a>
+                                </div>
+                                <div class="col-xl-5 col-lg-5 col-md-5 col-sm-5 col-12">
+                                    <address class="text-right">
+                                        34100, Kadıköy-İstanbul Türkiye<br>
+                                        foody@gmail.com<br>
+                                        Kadıköy, İstanbul, Türkiye
+                                    </address>
+                                </div>
+                            </div>
+                            <!-- Row end -->
+                        </div>
+
+                        <!-- Row start -->
+                        <div class="row">
+                            <div class="col-sm-12 col-12">
+                                <div class="invoice-details">
+                                    <address class="m-0">
+                                        <div class="fs-6">@Model.ContactId - @Model.NameSurname</div>
+                                        <div class="fs-6">@Model.Mail</div>
+                                    </address>
+
+                                    <div class="invoice-num">
+                                        <div>
+                                            <div class="fs-6">Gönderim Tarihi : @Model.dateTime.ToShortDateString()</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Row end -->
+                                <!-- Row start -->
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="card-header">
+                                            <div class="card-title">Konu : @Model.Title</div>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="create-offer-container">
+                                                <textarea class="form-control" rows="5" readonly>@Model.Message</textarea>
+                                                <div class="share-thoughts-footer">
+                                                    <div class="share-icons">
+                                                        <a href="#">
+                                                            @if (@Model.Status == true)
+                                                            {
+                                                                <i class="bi bi-eye-fill fs-4 m-3"></i>
+                                                            }
+                                                            else
+                                                            {
+                                                                <i class="bi bi-eye fs-4 m-3"></i>
+                                                            }
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <!-- Row end -->
+                                    <!-- Row start -->
+                                    <div class="row">
+                                        <div class="col-sm-12 col-12">
+                                            <div class="invoice-footer">
+                                                <div class="text-end">
+                                                    <button class="btn btn-success ms-1">Okundu işaretle</button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <!-- Row end -->
+</form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
