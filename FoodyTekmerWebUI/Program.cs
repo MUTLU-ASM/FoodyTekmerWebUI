@@ -37,6 +37,9 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+
+app.UseStatusCodePagesWithRedirects("/StatusCodeError/{0}");
+
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
@@ -46,6 +49,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=AdminHome}/{action=Index}/{id?}");
+    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();

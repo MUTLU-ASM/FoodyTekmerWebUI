@@ -1,0 +1,41 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="canonical" href="https://www.bootstrap.gallery/">
+	<link rel="shortcut icon" href="~/foody2-1.0.0/img/logo-1-icon.png">
+	<title>@ViewBag.ErrorMessage - Page</title>
+	<link rel="stylesheet" href="/vivo/design/assets/css/animate.css">
+	<link rel="stylesheet" href="/vivo/design/assets/fonts/bootstrap/bootstrap-icons.css">
+	<link rel="stylesheet" href="/vivo/design/assets/css/main.min.css">
+	<link rel="stylesheet" href="/vivo/design/assets/vendor/particles/particles.css">
+
+</head>
+
+<body class="error-page">
+
+	<div id="particles-js"></div>
+	<div class="countdown-bg"></div>
+
+	<div class="error-screen">
+		<h1>@ViewBag.ErrorMessage</h1>
+		<h4>Oops! @ViewBag.ErrorMessage Hata: Kayboldunuz! 🤷‍♂️<br /></h4>
+		<h5 style="font-size:24px"> Sanırım yanlış bir yola sapmış olmalısınız.Burada kaybolmak hiç de fena değil aslında, belki de biraz keşfediyorsunuzdur?<br />Bir sonraki sayfada ise yolunuzu bulacaksınız, umarım!</h5>
+		<a href="javascript:history.back()" class="btn btn-outline-white">Geri Dön</a>
+	</div>
+
+	<script src="/vivo/design/assets/js/jquery.min.js"></script>
+	<script src="/vivo/design/assets/js/bootstrap.bundle.min.js"></script>
+	<script src="/vivo/design/assets/js/moment.js"></script>
+	<script src="/vivo/design/assets/vendor/particles/particles.min.js"></script>
+	<script src="/vivo/design/assets/vendor/particles/particles-custom.js"></script>
+
+</body>
+
+</html>
