@@ -22,16 +22,16 @@ namespace FoodyTekmerWebUI.Controllers
         public IActionResult ProductChart()
         {
             var products = _productService.TGetAllList()
-    .Select(x => new { x.Name, x.Stock })
-    .ToList();
+                                           .Select(x => new { x.Name, x.Stock })
+                                            .ToList();
             return Json(products);
         }
         [HttpGet]
-        public IActionResult Product2Chart()
+        public IActionResult ProductPriceChart()
         {
             var products = _productService.TGetAllList()
-    .Select(x => new { x.Name, x.NewPrice, x.OldPrice })
-    .ToList();
+                                           .Select(x => new { x.Name, x.NewPrice, x.OldPrice })
+                                            .ToList();
             return Json(products);
         }
     }
