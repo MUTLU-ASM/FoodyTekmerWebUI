@@ -13,7 +13,8 @@ namespace FoodyTekmerWebUI.Controllers
             ViewBag.category = context.Categories.Count();
             ViewBag.testimonial = context.Testimonials.Count();
             ViewBag.contact = context.Contacts.Count();
-            ViewBag.mailTime = context.Contacts.Where(x => x.Status == false).Count();
+            ViewBag.newMail = context.Contacts.Where(x => x.Status == false).Count();
+
             return View();
         }
     }

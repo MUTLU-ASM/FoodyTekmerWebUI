@@ -5,8 +5,6 @@
 @{
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-
 <h2 style="pointer-events: none; user-select: none;">-- Kategori Listesi</h2>
 <div class="card">
     <div class="card-body">
@@ -23,8 +21,8 @@
                     <tr>
                         <td>@x.CategoryId</td>
                         <td>@x.CategoryName</td>
-                        <td><a href="/Category/DeleteCategory/@x.CategoryId" class="btn btn-danger">Sil</a></td>
-                        <td><a href="/Category/UpdateCategory/@x.CategoryId" class="btn btn-success">Güncelle</a></td>
+                        <td><a href="/Category/DeleteCategory/@x.CategoryId" class="btn btn-danger"><i class="bi bi-trash"></a></td>
+                        <td><a href="/Category/UpdateCategory/@x.CategoryId" class="btn btn-success"><i class="bi bi-arrow-repeat"></a></td>
                     </tr>
                 }
 

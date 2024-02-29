@@ -15,8 +15,8 @@
     <meta property="og:description" content="Marketplace for Bootstrap Admin Dashboards">
     <meta property="og:type" content="Website">
     <meta property="og:site_name" content="Bootstrap Gallery">
-    <link rel="shortcut icon" href="~/foody2-1.0.0/img/icon-1.png">
-    <title>Vivo Admin Template - Admin Dashboard</title>
+    <link rel="shortcut icon" href="~/foody2-1.0.0/img/logo-1-icon.png">
+    <title>Foody Admin Template</title>
     <link rel="stylesheet" href="/vivo/design/assets/css/animate.css">
     <link rel="stylesheet" href="/vivo/design/assets/fonts/bootstrap/bootstrap-icons.css">
     <link rel="stylesheet" href="/vivo/design/assets/css/main.min.css">
@@ -98,7 +98,7 @@
                 <div class="header-actions-container">
                     <a href="/Contact/Index" type="button" class="btn btn-default position-relative">
                         <i class="bi bi-envelope fs-2"></i>
-                        <span class="position-absolute top-0 start-80 translate-middle badge rounded-pill shade-secondary">+@ViewBag.mailTime</span>
+                        <span class="position-absolute top-0 start-80 translate-middle badge rounded-pill shade-secondary">+@ViewBag.newMail</span>
                     </a>
                     <ul class="header-actions">
                         <li class="dropdown">
@@ -111,9 +111,9 @@
                             </a>
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="userSettings">
                                 <div class="header-profile-actions">
-                                    <a href="profile.html">Profil</a>
-                                    <a href="account-settings.html">Ayarlar</a>
-                                    <a href="login.html">Çıkış Yap</a>
+                                    <a href="/Profile/Index">Profil</a>
+                                    <a href="/Profile/ProfileSetting">Ayarlar</a>
+                                    <a href="/Home/Index">Çıkış Yap</a>
                                 </div>
                             </div>
                         </li>

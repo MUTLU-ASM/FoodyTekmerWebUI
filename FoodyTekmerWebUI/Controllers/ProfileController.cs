@@ -8,5 +8,9 @@ namespace FoodyTekmerWebUI.Controllers
         {
             return View();
         }
+        public IActionResult ProfileSetting()
+        {
+            return View();
+        }
     }
 }

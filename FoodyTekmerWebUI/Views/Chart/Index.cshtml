@@ -1,0 +1,212 @@
+﻿@model List<FoodyTekmerEntityLayer.Concrete.Product>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<script src="~/vivo/design/assets/js/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+<div class="col-xxl-12 col-sm-12 col-12">
+    <div class="card">
+        <div class="card-body">
+            <!-- Row start -->
+            <div class="row">
+                <div class="col-sm-6 col-12">
+                    <div class="stats-tile2-container">
+                    <div class="card-header">
+                        <div class="card-title">Ürün Stok Grafiği</div>
+                    </div>
+                        <div class="scroll300">
+                            <div class="logs table">
+                                @foreach (var x in Model)
+                                {
+                                    <div class="log-list">
+                                        <div class=""><i class="bi bi-circle-fill text-primary"></i></div>
+                                        <div class="log-title">@x.Name </div>
+                                        <div class="log-time">@x.Stock Stok</div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-12">
+                    <div id="graph8"></div>
+                </div>
+            </div>
+            <!-- Row end -->
+        </div>
+    </div>
+</div>
+<div class="col-sm-12 col-12">
+    <div class="card">
+        <div class="card-header">
+            <div class="card-title">Ürün Fiyat Grafiği</div>
+        </div>
+        <div class="card-body">
+            <div id="line-with-data-labels"></div>
+        </div>
+    </div>
+</div>
+<script>
+    // AJAX isteğiyle verileri al
+    $.ajax({
+        type: "GET",
+        url: "/Chart/ProductChart", // Verileri sağlayan endpointin adresi
+        success: function (response) {
+            var data = response;
+
+            // Grafik seçenekleri
+            var options = {
+                chart: {
+                    height: 500,
+                    type: 'radialBar',
+                },
+                labels: data.map(item => item.name), // Ürün isimlerini etiket olarak kullan
+                series: data.map(item => item.stock), // Ürün stok miktarlarını seriler olarak kullan
+                plotOptions: {
+                    radialBar: {
+                        dataLabels: {
+                            name: {
+                                show: true,
+                            },
+                            value: {
+                                show: true,
+                                formatter: function (val) {
+                                    return val
+                                }
+                            },
+                            total: {
+                                show: true,
+                                label: 'Stok'
+                            }
+                        }
+                    }
+                },
+                colors: ['#435EEF', '#149865', '#EB3333', "#3e8914", "#ffea00"], // Opsiyonel olarak renkler
+            };
+
+            // Grafik oluşturma ve render etme
+            var chart = new ApexCharts(
+                document.querySelector("#graph8"),
+                options
+            );
+            chart.render();
+        },
+        error: function (xhr, status, error) {
+            console.error(error);
+        }
+    });
+
+    // AJAX isteğiyle verileri al
+    $.ajax({
+        type: "GET",
+        url: "/Chart/Product2Chart", // Verileri sağlayan endpointin adresi
+        success: function (response) {
+            var data = response;
+            
+            // Ürün isimlerini ve fiyatları ayrı listelere ayır
+            var productNames = data.map(x => x.name);
+            var newPrices = data.map(x => x.newPrice);
+            var oldPrices = data.map(x => x.oldPrice);
+
+            // Grafik seçenekleri
+            var options = {
+                chart: {
+                    height: 300,
+                    type: 'line',
+                    dropShadow: {
+                        enabled: true,
+                        opacity: 0.1,
+                        blur: 5,
+                        left: -10,
+                        top: 10
+                    },
+                    zoom: {
+                        enabled: false
+                    },
+                    dataLabels: {
+                        enabled: false
+                    },
+                    shadow: {
+                        enabled: true,
+                        color: '#2e323c',
+                        top: 18,
+                        left: 7,
+                        blur: 10,
+                        opacity: 1
+                    },
+                },
+                colors: ['#435EEF', '#2b86f5'],
+                stroke: {
+                    curve: 'smooth',
+                    width: 3,
+                },
+                series: [{
+                    name: "Eski Fiyatı",
+                    data: oldPrices
+                },
+                {
+                    name: "Yeni Fiyatı",
+                    data: newPrices
+                }],
+                title: {
+                    text: 'Ürün Fiyat Karşılaştırması',
+                    align: 'center'
+                },
+                grid: {
+                    borderColor: '#e0e6ed',
+                    strokeDashArray: 5,
+                    xaxis: {
+                        lines: {
+                            show: true
+                        }
+                    },
+                    yaxis: {
+                        lines: {
+                            show: false,
+                        }
+                    },
+                    padding: {
+                        top: 0,
+                        right: 0,
+                        bottom: 0,
+                        left: 0
+                    },
+                },
+                markers: {
+                    size: 6
+                },
+                xaxis: {
+                    categories: productNames,
+                    title: {
+                        text: 'Ürünler'
+                    }
+                },
+                yaxis: {
+                    title: {
+                        text: 'Fiyat'
+                    },
+                    min: 0
+                },
+                legend: {
+                    position: 'top',
+                    horizontalAlign: 'right',
+                    floating: true,
+                    offsetY: -25,
+                    offsetX: -5
+                }
+            };
+
+            // Yeni bir chart oluştur ve render et
+            var chart = new ApexCharts(
+                document.querySelector("#line-with-data-labels"),
+                options
+            );
+            chart.render();
+        },
+        error: function (xhr, status, error) {
+            console.error(error);
+        }
+    });
+</script>

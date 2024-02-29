@@ -30,7 +30,7 @@
                         <td style="width:110px">@x.NameSurname</td>
                         <td>@x.Mail</td>
                         <td>@x.Title</td>
-                        <td>@x.Message</td>
+                        <td><span id="truncatedMessage@(x.ContactId)">@x.Message</span></td>
                         <td>@x.dateTime.ToShortDateString()</td>
                         <td>
                             @if(@x.Status==true){
@@ -42,7 +42,7 @@
                             }
                         </td>
                         <td><a href="/Contact/UpdateContact/@x.ContactId" class="btn btn-secondary"><i class="bi bi-book"></i></a</td>
-                        <td><a href="/Contact/DeleteContact/@x.ContactId" class="btn btn-danger">Sil</a></td>
+                        <td><a href="/Contact/DeleteContact/@x.ContactId" class="btn btn-danger"><i class="bi bi-trash"></a></td>
                     </tr>
                 }
             </table>
@@ -67,3 +67,17 @@
         </div>
     </div>
 </div>
+
+<script>
+    let maxLength = 60;
+ @foreach (var item in Model)
+    {
+        <text>
+        let message@(item.ContactId) = document.getElementById("truncatedMessage@(item.ContactId)").textContent; 
+        if (message@(item.ContactId).length > maxLength) {
+            message@(item.ContactId) = message@(item.ContactId).substring(0, maxLength) + "..."; 
+        }
+        document.getElementById("truncatedMessage@(item.ContactId)").textContent = message@(item.ContactId);
+        </text>
+    }
+</script>

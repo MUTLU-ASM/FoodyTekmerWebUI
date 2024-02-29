@@ -5,7 +5,6 @@
 @{
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
 <h2 style="pointer-events: none; user-select: none;">-- Yorum Listesi</h2>
 <div class="card">
     <div class="card-body">
@@ -28,8 +27,8 @@
                         <td style="width:550px;">@x.Description</td>
                         <td>@x.Title</td>
                         <td><img style="width:50px; border-radius:50px;" src="@x.ImageUrl" alt="@x.NameSurname" /></td>
-                        <td><a href="/Testimonial/DeleteTestimonial/@x.TestimonialId" class="btn btn-danger">Sil</a></td>
-                        <td><a href="/Testimonial/UpdateTestimonial/@x.TestimonialId" class="btn btn-success">Güncelle</a></td>
+                        <td><a href="/Testimonial/DeleteTestimonial/@x.TestimonialId" class="btn btn-danger"><i class="bi bi-trash"></a></td>
+                        <td><a href="/Testimonial/UpdateTestimonial/@x.TestimonialId" class="btn btn-success"><i class="bi bi-arrow-repeat"></a></td>
                     </tr>
                 }
             </table>
@@ -46,7 +45,7 @@
                     Display = PagedListDisplayMode.IfNeeded
 
                 })
-            </div>
+            </div><br/>
             <a href="/Testimonial/CreateTestimonial" class="btn btn-primary">Yeni Yorum Girişi</a>
         </div>
     </div>
