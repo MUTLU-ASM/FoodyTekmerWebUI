@@ -1,0 +1,58 @@
+﻿@model FoodyTekmerWebUI.Models.UserSignInViewModel
+@{
+    Layout = null;
+}
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="canonical" href="https://www.bootstrap.gallery/">
+    <link rel="shortcut icon" href="~/foody2-1.0.0/img/logo-1-icon.png">
+    <title>Admin Login</title>
+    <link rel="stylesheet" href="/vivo/design/assets/css/animate.css">
+    <link rel="stylesheet" href="/vivo/design/assets/fonts/bootstrap/bootstrap-icons.css">
+    <link rel="stylesheet" href="/vivo/design/assets/css/main.min.css">
+</head>
+
+<body class="login-container">
+    <div class="login-box">
+        <div class="login-form">
+            <a href="index.html">
+                <img class="w-25 " src="\foody2-1.0.0\img\logo-1.jpg" alt="Admin" />
+            </a><br /><br />
+            <form method="post">
+                <div class="mb-3">
+                    <label class="form-label">Mail</label>
+                    <input type="text" class="form-control" asp-for="Email">
+                    <span asp-validation-for="Email"></span>
+                </div>
+                <div class="mb-3">
+                    <div class="d-flex justify-content-between">
+                        <label class="form-label">Şifre</label>
+                        <a href="forgot-password.html" class="btn-link ml-auto">Şifremi Unuttum</a>
+                    </div>
+                    <input type="password" class="form-control" asp-for="Password">
+                    <span asp-validation-for="Password"></span>
+                </div>
+                <div class="login-form-actions">
+                    <a href="/AdminHome/Index" type="submit" class="btn btn-lg">
+                        <span class="icon"> <i class="bi bi-arrow-right-circle"></i> </span>
+                        Giriş
+                    </a>
+            </form>
+        </div>
+    </div>
+    </div>
+
+    <script src="/vivo/design/assets/js/jquery.min.js"></script>
+    <script src="/vivo/design/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="/vivo/design/assets/js/modernizr.js"></script>
+    <script src="/vivo/design/assets/js/moment.js"></script>
+    <script src="/vivo/design/assets/js/main.js"></script>
+
+</body>
+
+</html>

@@ -23,10 +23,15 @@
                     <th>Detay</th>
                     <th>Sil</th>
                 </tr>
+            @{
+               int startIndex = (Model.PageNumber - 1) * Model.PageSize + 1;
+               int counter = startIndex;
+             }
                 @foreach (var x in Model)
                 {
                     <tr>
-                        <th>@x.ContactId</th>
+                        <th style="display: none;">@x.ContactId</th>
+                        <th>@counter</th>
                         <td style="width:110px">@x.NameSurname</td>
                         <td>@x.Mail</td>
                         <td>@x.Title</td>
@@ -44,6 +49,7 @@
                         <td><a href="/Contact/UpdateContact/@x.ContactId" class="btn btn-secondary"><i class="bi bi-book"></i></a</td>
                         <td><a href="/Contact/DeleteContact/@x.ContactId" class="btn btn-danger"><i class="bi bi-trash"></a></td>
                     </tr>
+                    counter++;
                 }
             </table>
 

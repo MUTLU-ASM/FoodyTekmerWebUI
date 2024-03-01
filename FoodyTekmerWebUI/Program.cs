@@ -21,6 +21,9 @@ builder.Services.AddScoped<IContactService, ContactManager>();
 builder.Services.AddScoped<ICategoryDal, EfCategoryDal>();
 builder.Services.AddScoped<ICategoryService, CategoryManager>();
 
+builder.Services.AddScoped<IAdminDal, EfAdminDal>();
+builder.Services.AddScoped<IAdminService, AdminManager>();
+
 builder.Services.AddDbContext<FoodyContext>();
 
 
@@ -36,8 +39,6 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
-
-
 app.UseStatusCodePagesWithRedirects("/StatusCodeError/{0}");
 
 app.UseHttpsRedirection();

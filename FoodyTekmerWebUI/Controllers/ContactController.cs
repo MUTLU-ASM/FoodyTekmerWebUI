@@ -15,7 +15,7 @@ namespace FoodyTekmerWebUI.Controllers
         }
         public IActionResult Index(int page = 1)
         {
-            var values = _contactService.TGetAllList().ToPagedList(page, 5);
+            var values = _contactService.TGetAllList().OrderByDescending(c => c.dateTime).ToPagedList(page, 5);
             return View(values);
         }
         public IActionResult DeleteContact(int id)
