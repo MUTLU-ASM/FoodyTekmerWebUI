@@ -2,56 +2,57 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-<div class="row">
-    <div class="col-xl-3 col-sm-6 col-12">
-        <div class="task-stats-container">
-            <div class="task-stats">
-                <div class="task-title">Ürünler</div>
-                <div class="task-count">@ViewBag.product</div>
-            </div>
-            <div class="task-stats-graph">
-                <div><i class="bi bi-basket2 fs-1"></i></div>
-            </div>
-        </div>
-    </div>
-    <div class="col-xl-3 col-sm-6 col-12">
-        <div class="task-stats-container">
-            <div class="task-stats">
-                <div class="task-title">Kategoriler</div>
-                <div class="task-count">@ViewBag.category</div>
-            </div>
-            <div class="task-stats-graph">
-                <div><i class="bi bi-tags fs-1"></i></div>
+<div class="container overflow-hidden">
+    <div class="row">
+        <div class="col-md-3 col-sm-6 col-12">
+            <div class="task-stats-container">
+                <div class="task-stats">
+                    <div class="task-title">Ürünler</div>
+                    <div class="task-count">@ViewBag.product</div>
+                </div>
+                <div class="task-stats-graph">
+                    <div><i class="bi bi-basket2 fs-1"></i></div>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="col-xl-3 col-sm-6 col-12">
-        <div class="task-stats-container">
-            <div class="task-stats">
-                <div class="task-title">Yorumlar</div>
-                <div class="task-count">@ViewBag.testimonial</div>
-            </div>
-            <div class="task-stats-graph">
-                <div><i class="bi bi-chat-quote fs-1"></i></div>
+        <div class="col-md-3 col-sm-6 col-12">
+            <div class="task-stats-container">
+                <div class="task-stats">
+                    <div class="task-title">Kategoriler</div>
+                    <div class="task-count">@ViewBag.category</div>
+                </div>
+                <div class="task-stats-graph">
+                    <div><i class="bi bi-tags fs-1"></i></div>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="col-xl-3 col-sm-6 col-12">
-        <div class="task-stats-container">
-            <div class="task-stats">
-                <div class="task-title">Mesajlar</div>
-                <div class="task-count">@ViewBag.contact</div>
+        <div class="col-md-3 col-sm-6 col-12">
+            <div class="task-stats-container">
+                <div class="task-stats">
+                    <div class="task-title">Yorumlar</div>
+                    <div class="task-count">@ViewBag.testimonial</div>
+                </div>
+                <div class="task-stats-graph">
+                    <div><i class="bi bi-chat-quote fs-1"></i></div>
+                </div>
             </div>
-            <div class="task-stats-graph">
-                <div><i class="bi bi-envelope fs-1"></i></div>
+        </div>
+        <div class="col-md-3 col-sm-6 col-12">
+            <div class="task-stats-container">
+                <div class="task-stats">
+                    <div class="task-title">Mesajlar</div>
+                    <div class="task-count">@ViewBag.contact</div>
+                </div>
+                <div class="task-stats-graph">
+                    <div><i class="bi bi-envelope fs-1"></i></div>
+                </div>
             </div>
         </div>
     </div>
 </div>
-
 <div class="container overflow-hidden">
     <div class="row gy-5">
-        <div class="col-9">
+        <div class="col-12 col-md-9 col-sm-12">
             <div class="card">
                 <div class="card-body">
                     <div class="table-responsive">
@@ -61,7 +62,7 @@
             </div>
         </div>
 
-        <div class="col-3">
+        <div class="col-12 col-md-3 col-sm-12">
             <div class="card">
                 <div class="card-body">
                     <div class="table-responsive">
@@ -71,7 +72,7 @@
             </div>
         </div>
 
-        <div class="col-4">
+        <div class="col-12 col-md-4 col-sm-12">
             <div class="card">
                 <div class="card-body">
                     <div class="table-responsive">
@@ -81,7 +82,7 @@
             </div>
         </div>
 
-        <div class="col-8">
+        <div class="col-12 col-md-8 col-sm-12">
             <div class="card">
                 <div class="card-body">
                     <div class="table-responsive">
