@@ -14,7 +14,7 @@ namespace FoodyTekmerWebUI.ViewComponents
 
         public IViewComponentResult Invoke()
         {
-            var values = _contactService.TGetAllList().Take(4).ToList();
+            var values = _contactService.TGetAllList().OrderByDescending(x=>x.dateTime).Take(4).ToList();
             return View(values);
         }
     }

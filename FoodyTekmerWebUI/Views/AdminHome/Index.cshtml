@@ -44,7 +44,18 @@
                     <div class="task-count">@ViewBag.contact</div>
                 </div>
                 <div class="task-stats-graph">
-                    <div><i class="bi bi-envelope fs-1"></i></div>
+                    <a href="/Contact/Index" type="button" class="btn btn-default position-relative">
+                        @if (@ViewBag.newMail > 0)
+                        {
+                            <i class="bi bi-envelope fs-1"></i>
+                            <span class="position-absolute top-0 start-80 translate-middle badge rounded-pill shade-secondary">+@ViewBag.newMail</span>
+                        }
+                        else
+                        {
+                            <i class="bi bi-envelope fs-1"></i>
+                        }
+
+                    </a>
                 </div>
             </div>
         </div>
