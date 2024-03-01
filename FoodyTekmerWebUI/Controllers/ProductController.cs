@@ -1,6 +1,9 @@
 ﻿using FoodyTekmerBusinessLayer.Abstract;
+using FoodyTekmerDataAccessLayer.Context;
 using FoodyTekmerEntityLayer.Concrete;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using X.PagedList;
 
 namespace FoodyTekmerWebUI.Controllers
@@ -13,7 +16,6 @@ namespace FoodyTekmerWebUI.Controllers
         {
             _productService = productService;
         }
-
         public IActionResult Index(int page = 1)
         {
             var values = _productService.TGetAllList().ToPagedList(page, 5);
@@ -36,7 +38,7 @@ namespace FoodyTekmerWebUI.Controllers
             var product = _productService.TGetById(id);
             if (product != null)
             {
-                product.Status = false;
+                product.Status = product.Status == false ? true : false;
                 _productService.TUpdate(product);
             }
             return RedirectToAction("Index");

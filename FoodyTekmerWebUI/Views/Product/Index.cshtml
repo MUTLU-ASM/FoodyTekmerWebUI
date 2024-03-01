@@ -2,7 +2,6 @@
 @using X.PagedList.Mvc.Core
 @using X.PagedList.Web.Common
 @model IPagedList<FoodyTekmerEntityLayer.Concrete.Product>
-
 @{
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
@@ -20,7 +19,7 @@
                     <th>Yeni Fiyat</th>
                     <th>Stok</th>
                     <th>Durum</th>
-                    <th>Sil</th>
+                    <th>✓ aktif / X pasif   </th>
                     <th>Güncelle</th>
                 </tr>
                 @foreach (var x in Model)
@@ -35,14 +34,29 @@
                         <td>
                             @if (x.Status == true)
                             {
-                                <span class="bg-success rounded p-1 text-white ml-3">✓</span>
+                                <span class="bg-success rounded p-1 text-white"><i class="bi bi-check-lg"></i></span>
                             }
                             else
                             {
-                                <span class="bg-danger rounded p-1 text-white">X</span>
+                                <span class="bg-danger rounded p-1 text-white"><i class="bi bi-x-lg"></i></span>
                             }
                         </td>
-                        <td><a href="/Product/DeleteProduct/@x.ProductId" class="btn btn-danger"><i class="bi bi-trash"></i></a></td>
+                        <td>
+                           
+                                @if (x.Status == false)
+                                {
+                                <a href="/Product/DeleteProduct/@x.ProductId" class="btn btn-danger">
+                                    <i class="bi bi-x-lg"></i>
+                                </a>
+                                }
+                                else
+                                {
+                                     <a href="/Product/DeleteProduct/@x.ProductId" class="btn btn-success">
+                                    <i class="bi bi-check-lg"></i>
+                                    </a>
+                                }
+                            
+                        </td>
                         <td><a href="/Product/UpdateProduct/@x.ProductId" class="btn btn-success"><i class="bi bi-arrow-repeat"></i></a></td>
                     </tr>
                 }
@@ -60,7 +74,7 @@
                     Display = PagedListDisplayMode.IfNeeded
 
                 })
-            </div><br/>
+            </div><br />
             <a href="/Product/CreateProduct" class="btn btn-primary">Yeni Ürün Girişi</a>
         </div>
     </div>
