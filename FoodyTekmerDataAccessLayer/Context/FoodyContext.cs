@@ -1,4 +1,5 @@
 ﻿using FoodyTekmerEntityLayer.Concrete;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -8,8 +9,8 @@ using System.Threading.Tasks;
 
 namespace FoodyTekmerDataAccessLayer.Context
 {
-    public class FoodyContext:DbContext
-    {
+    public class FoodyContext : IdentityDbContext<AppUser, AppRole, int>
+	{
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<Testimonial> Testimonials { get; set; }

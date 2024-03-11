@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace FoodyTekmerWebUI.Controllers
 {
     public class DefaultController : Controller
     {
-        public IActionResult Index()
+		[AllowAnonymous]
+		public IActionResult Index()
         {
             ViewBag.title1 = "Ürünler";
             ViewBag.title2 = "Ana Sayfa";

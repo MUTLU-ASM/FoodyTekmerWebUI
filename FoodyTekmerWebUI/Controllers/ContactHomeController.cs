@@ -1,10 +1,12 @@
 ﻿using FoodyTekmerBusinessLayer.Abstract;
 using FoodyTekmerEntityLayer.Concrete;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FoodyTekmerWebUI.Controllers
 {
-    public class ContactHomeController : Controller
+	[AllowAnonymous]
+	public class ContactHomeController : Controller
     {
         private readonly IContactService _contactService;
 

@@ -1,40 +1,58 @@
 ﻿using FoodyTekmerBusinessLayer.Abstract;
 using FoodyTekmerEntityLayer.Concrete;
 using FoodyTekmerWebUI.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FoodyTekmerWebUI.Controllers
 {
+    [AllowAnonymous]
     public class LoginController : Controller
     {
-        //private readonly SignInManager<Admin> _signInManager;
+		private readonly UserManager<AppUser> _userManager;
 
-        //public LoginController(SignInManager<Admin> signInManager)
-        //{
-        //    _signInManager = signInManager;
-        //}
-        //[HttpGet]
-        public IActionResult Index()
+		public LoginController(UserManager<AppUser> userManager)
+		{
+			_userManager = userManager;
+		}
+
+		[HttpGet]
+        public IActionResult SignUp()
         {
             return View();
         }
-        //[HttpPost]
-        //public async Task<IActionResult> Index(UserSignInViewModel user)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        var result = await _signInManager.PasswordSignInAsync(user.Email, user.Password, false, false);
-        //        if (result.Succeeded)
-        //        {
-        //            return RedirectToAction("Index", "AdminHome");
-        //        }
-        //        else
-        //        {
-        //            return RedirectToAction("Index", "Login");
-        //        }
-        //    }
-        //    return View();
-        //}
-    }
+		[HttpPost]
+		public async Task<IActionResult> SignUp(UserRegisterViewModel user)
+		{
+			AppUser appUser = new AppUser()
+			{
+				Name = user.Name,
+				Surname = user.Surname,
+				Email = user.Mail,
+				UserName = user.Username
+			};
+			if (user.Password == user.ConfirmPassword)
+			{
+				var result = await _userManager.CreateAsync(appUser, user.Password);
+				if (result.Succeeded)
+				{
+					return RedirectToAction("SignIn");
+				}
+				else
+				{
+					foreach (var x in result.Errors)
+					{
+						ModelState.AddModelError("", x.Description);
+					}
+				}
+			}
+			return View(user);
+		}
+		[HttpGet]
+		public IActionResult SignIn()
+		{
+			return View();
+		}
+	}
 }

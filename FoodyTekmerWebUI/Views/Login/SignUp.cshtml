@@ -1,0 +1,108 @@
+﻿@model FoodyTekmerWebUI.Models.UserRegisterViewModel
+@{
+    Layout = null;
+}
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Meta -->
+    <meta name="description" content="Vivo - Responsive Bootstrap 5 Dashboard Template">
+    <meta name="author" content="Bootstrap Gallery" />
+    <link rel="canonical" href="https://www.bootstrap.gallery/">
+    <meta property="og:url" content="https://www.bootstrap.gallery">
+    <meta property="og:title" content="Admin Templates - Dashboard Templates | Bootstrap Gallery">
+    <meta property="og:description" content="Marketplace for Bootstrap Admin Dashboards">
+    <meta property="og:type" content="Website">
+    <meta property="og:site_name" content="Bootstrap Gallery">
+    <link rel="shortcut icon" href="~/foody2-1.0.0/img/logo-1-icon.png">
+    <title>Foody Kullanıcı Kayıt Ekranı</title>
+    <link rel="stylesheet" href="/vivo/design/assets/css/animate.css">
+    <link rel="stylesheet" href="/vivo/design/assets/fonts/bootstrap/bootstrap-icons.css">
+    <link rel="stylesheet" href="/vivo/design/assets/css/main.min.css">
+</head>
+
+<body class="login-container">
+    <form method="post">
+        <div class="login-box" style="width:900px; !important">
+            <div class="login-form">
+                <a class="login-logo">
+                    <img style="width:100px; height:70px" src="~/foody2-1.0.0/img/logo-1.jpg" alt="Vico Admin" />
+                </a>
+                <div class="login-welcome">
+                    Hoşgeldiniz, <br />Yeni bir hesap oluşturun
+                </div>
+                <div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="mb-3">
+                                <label class="form-label">Adınız</label>
+                                <input type="text" class="form-control" asp-for="Name">
+                                <span asp-validation-for="Name" class="text-danger"></span>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Soyadınız</label>
+                                <input type="text" class="form-control" asp-for="Surname">
+                                <span asp-validation-for="Surname" class="text-danger"></span>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Kullanıcı Adınız</label>
+                                <input type="text" class="form-control" asp-for="Username">
+                                <span asp-validation-for="Username" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col">
+
+                            <div class="mb-3">
+                                <label class="form-label">Email</label>
+                                <input type="email" class="form-control" asp-for="Mail">
+                                <span asp-validation-for="Mail" class="text-danger"></span>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Şifreniz</label>
+                                <input type="password" class="form-control" asp-for="Password">
+                                <span asp-validation-for="Password" class="text-danger"></span>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Tekrar Şifrenizi Giriniz</label>
+                                <input type="password" class="form-control" asp-for="ConfirmPassword">
+                                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                            </div>
+                            <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+                        </div>
+
+                        <div class="login-form-actions">
+                            <button type="submit" class="btn">
+                                <span class="icon"> <i class="bi bi-arrow-right-circle"></i> </span>
+                                Kayıt Ol
+                            </button>
+                        </div>
+                        <div class="login-form-actions">
+                            <button type="submit" class="btn">
+                                <img src="/vivo/design/assets/images/google.svg" class="login-icon"
+                                     alt="Signup using Gmail">
+                                Gmail ile kayıt ol
+                            </button>
+                        </div>
+                        <div class="login-form-footer">
+                            <div class="additional-link">
+                                &nbsp;&nbsp; Zaten bir hesabınız var mı? <a href="/Login/SignIn"> Giriş Sayfası</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    </form>
+    <script src="/vivo/design/assets/js/jquery.min.js"></script>
+    <script src="/vivo/design/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="/vivo/design/assets/js/modernizr.js"></script>
+    <script src="/vivo/design/assets/js/moment.js"></script>
+    <script src="/vivo/design/assets/js/main.js"></script>
+
+</body>
+
+</html>

@@ -13,6 +13,7 @@ namespace FoodyTekmerWebUI.Controllers
         {
             _contactService = contactService;
         }
+
         public IActionResult Index(int page = 1)
         {
             var values = _contactService.TGetAllList().OrderByDescending(c => c.dateTime).ToPagedList(page, 5);
