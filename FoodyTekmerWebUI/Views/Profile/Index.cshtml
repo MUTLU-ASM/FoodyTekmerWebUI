@@ -1,4 +1,5 @@
-﻿@{
+﻿@model FoodyTekmerWebUI.Models.UserEditViewModel
+@{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
@@ -6,24 +7,24 @@
 <div class="row gutters">
     <div class="col-sm-12 col-12">
         <div class="profile-header">
-            <h1>Hoşgeldin, Asım</h1>
+            <h1>Hoşgeldin, @Model.name</h1>
             <div class="profile-header-content">
                 <div class="profile-header-tiles">
                     <div class="row gutters">
                         <div class="col-sm-4 col-12">
                             <div class="profile-tile">
                                 <span class="icon">
-                                    <i class="bi bi-pentagon"></i>
+                                    <i class="bi bi-person"></i>
                                 </span>
-                                <h6>Ad Soyad - <span>Asım Mutlu</span></h6>
+                                <h6>Ad Soyad - <span>@Model.name @Model.surName</span></h6>
                             </div>
                         </div>
                         <div class="col-sm-4 col-12">
                             <div class="profile-tile">
                                 <span class="icon">
-                                    <i class="bi bi-pin-angle"></i>
+                                    <i class="bi bi-envelope"></i>
                                 </span>
-                                <h6>Lokasyon - <span>Türkiye</span></h6>
+                                <h6>Mail - <span>@Model.mail</span></h6>
                             </div>
                         </div>
                         <div class="col-sm-4 col-12">
@@ -31,13 +32,13 @@
                                 <span class="icon">
                                     <i class="bi bi-telephone"></i>
                                 </span>
-                                <h6>Telefon - <span>1234567890</span></h6>
+                                <h6>Telefon - <span>@Model.phoneNumber</span></h6>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="profile-avatar-tile">
-                    <img src="~/foody2-1.0.0/img/testimonial-2.jpg" class="img-fluid"
+                    <img src="@Model.imageUrl" class="img-fluid"
                          alt="Bootstrap Gallery" />
                 </div>
             </div>

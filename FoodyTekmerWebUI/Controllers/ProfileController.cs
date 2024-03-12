@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace FoodyTekmerWebUI.Controllers
 {
-    [Route("/[Controller]/[action]")]
     public class ProfileController : Controller
     {
         private readonly UserManager<AppUser> _userManager;
@@ -13,9 +12,18 @@ namespace FoodyTekmerWebUI.Controllers
         {
             _userManager = userManager;
         }
-        public IActionResult Index()
+		[HttpGet]
+		public async Task<IActionResult> Index()
         {
-            return View();
+			var values = await _userManager.FindByNameAsync(User.Identity.Name);
+			UserEditViewModel userEditViewModel = new UserEditViewModel();
+			userEditViewModel.name = values.Name;
+			userEditViewModel.surName = values.Surname;
+			userEditViewModel.phoneNumber = values.PhoneNumber;
+			userEditViewModel.mail = values.Email;
+			userEditViewModel.imageUrl = values.ImageUrl;
+			ViewBag.img = values.ImageUrl;
+			return View(userEditViewModel);
         }
         [HttpGet]
         public async Task<IActionResult> ProfileSetting()
