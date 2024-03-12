@@ -1,15 +1,14 @@
-﻿
+﻿@model FoodyTekmerWebUI.Models.UserEditViewModel
 @{
     ViewData["Title"] = "ProfileSetting";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-
-
+<form method="post">
 <div class="content-wrapper-scroll">
 
 	<!-- Content wrapper start -->
 	<div class="content-wrapper">
-
+		
 		<!-- Row start -->
 		<div class="row">
 			<div class="col-xl-12">
@@ -23,7 +22,7 @@
 								<div class="row">
 									<div class="col-sm-6 col-12">
 										<div class="d-flex flex-row">
-											<img src="/vivo/design/assets/images/user3.png" class="img-fluid change-img-avatar" alt="Image">
+											<img src="@ViewBag.img" class="img-fluid change-img-avatar" alt="Image">
 										</div>
 									</div>
 								</div>
@@ -31,37 +30,44 @@
 									<div class="col-xxl-4 col-sm-6 col-12">
 										<!-- Form Field Start -->
 										<div class="mb-3">
-											<label for="fullName" class="form-label">Ad Soyad</label>
-											<input type="text" class="form-control" id="fullName" placeholder="Ad Soyad">
+											<label for="fullName" class="form-label">Ad</label>
+											<input type="text" class="form-control" asp-for="name" placeholder="Ad">
 										</div>
 									</div>
+										<div class="col-xxl-4 col-sm-6 col-12">
+											<!-- Form Field Start -->
+											<div class="mb-3">
+												<label for="fullName" class="form-label">Soyad</label>
+												<input type="text" class="form-control" asp-for="surName" placeholder="Ad">
+											</div>
+										</div>
 									<div class="col-xxl-4 col-sm-6 col-12">
 										<!-- Form Field Start -->
 										<div class="mb-3">
 											<label for="emailID" class="form-label">Mail</label>
-											<input type="email" class="form-control" id="emailID" placeholder="reese@gmail.com">
+											<input type="email" class="form-control" asp-for="mail" id="emailID" placeholder="reese@gmail.com">
 										</div>
 									</div>
 									<div class="col-xxl-4 col-sm-6 col-12">
 										<!-- Form Field Start -->
 										<div class="mb-3">
 											<label for="phoneNo" class="form-label">Telefon</label>
-											<input type="number" class="form-control" id="phoneNo" placeholder="123-456-7890">
+											<input type="number" class="form-control" asp-for="phoneNumber" placeholder="123-456-7890">
 										</div>
 									</div>
 									<div class="col-xxl-4 col-sm-6 col-12">
 										<!-- Form Field Start -->
 										<div class="mb-3">
-											<label for="Country" class="form-label">Ülke</label>
-											<input type="text" class="form-control"  placeholder="Türkiye">
+											<label for="Country" class="form-label">Şifre</label>
+											<input type="text" class="form-control" asp-for="password"  placeholder="Şifreniz">
 										</div>
 									</div>
 									<div class="col-xxl-4 col-sm-6 col-12">
 										<!-- Form Field Start -->
 										<div class="mb-3">
-											<label for="enterPassword" class="form-label">Şifre</label>
-											<input type="password" class="form-control" id="enterPassword"
-												   placeholder="Şifre">
+											<label for="enterPassword" class="form-label">Şifre Tekrar</label>
+											<input type="password" class="form-control" asp-for="confirmPassword" id="enterPassword"
+												   placeholder="Tekrar Şifreniz">
 										</div>
 									</div>
 									<div class="col-xxl-4 col-sm-6 col-12">
@@ -90,3 +96,4 @@
 
 	</div>
 	<!-- Content wrapper end -->
+</form>

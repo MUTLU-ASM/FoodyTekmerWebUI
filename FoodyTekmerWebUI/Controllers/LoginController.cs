@@ -64,7 +64,7 @@ namespace FoodyTekmerWebUI.Controllers
 				var result = await _signInManager.PasswordSignInAsync(u.username, u.password, false, true);
 				if (result.Succeeded)
 				{
-					return RedirectToAction("Index", "AdminHome");
+					return RedirectToAction("ProfileSetting", "Profile");
 				}
 				else
 				{
