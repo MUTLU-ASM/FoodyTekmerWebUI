@@ -1,136 +1,20 @@
 ﻿@{
     Layout = null;
 }
-
 <!doctype html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Vivo - Responsive Bootstrap 5 Dashboard Template">
-    <meta name="author" content="Bootstrap Gallery" />
-    <link rel="canonical" href="https://www.bootstrap.gallery/">
-    <meta property="og:url" content="https://www.bootstrap.gallery">
-    <meta property="og:title" content="Admin Templates - Dashboard Templates | Bootstrap Gallery">
-    <meta property="og:description" content="Marketplace for Bootstrap Admin Dashboards">
-    <meta property="og:type" content="Website">
-    <meta property="og:site_name" content="Bootstrap Gallery">
-    <link rel="shortcut icon" href="~/foody2-1.0.0/img/logo-1-icon.png">
-    <title>Foody Admin Sayfası</title>
-    <link rel="stylesheet" href="/vivo/design/assets/css/animate.css">
-    <link rel="stylesheet" href="/vivo/design/assets/fonts/bootstrap/bootstrap-icons.css">
-    <link rel="stylesheet" href="/vivo/design/assets/css/main.min.css">
-    <link rel="stylesheet" href="/vivo/design/assets/vendor/overlay-scroll/OverlayScrollbars.min.css">
-
-</head>
-
+@await Html.PartialAsync("/Views/AdminLayoutPartial/_HeaderPartial.cshtml")
 <body>
     <div class="page-wrapper">
-        <nav class="sidebar-wrapper">
-            <div class="sidebar-brand">
-                <a href="/AdminHome/Index" class="logo">
-                    <img src="~/foody2-1.0.0/img/logo-1.jpg" alt="Admin Dashboard" />
-                </a>
-            </div>
-            <div class="sidebar-menu">
-                <div class="sidebarMenuScroll">
-                    <ul>
-                        <li class="sidebar">
-                            <a href="/AdminHome/Index">
-                                <i class="bi bi-house"></i>
-                                <span class="menu-text"> Ana Sayfa</span>
-                            </a>
-                        </li>
-                        <li class="sidebar">
-                            <a href="/Profile/Index">
-                                <i class="bi bi-person"></i>
-                                <span class="menu-text">Profil</span>
-                            </a>
-                        </li>
-                        <li class="sidebar">
-                            <a href="/Product/Index">
-                                <i class="bi bi-handbag"></i>
-                                <span class="menu-text">Ürünler</span>
-                            </a>
-                        </li>
-                        <li class="sidebar">
-                            <a href="/Category/Index">
-                                <i class="bi bi-tag"></i>
-                                <span class="menu-text">Kategoriler</span>
-                            </a>
-                        </li>
-                        <li class="sidebar">
-                            <a href="/Testimonial/Index">
-                                <i class="bi bi-chat-quote"></i>
-                                <span class="menu-text">Yorumlar</span>
-                            </a>
-                        </li>
-                        <li class="sidebar">
-                            <a href="/Contact/Index">
-                                <i class="bi bi-envelope"></i>
-                                <span class="menu-text">Mesajlar</span>
-                            </a>
-                        </li>
-                        <li class="sidebar">
-                            <a href="/Chart/Index">
-                                <i class="bi bi-pie-chart"></i>
-                                <span class="menu-text">Grafik</span>
-                            </a>
-                        </li>
-                        <li class="sidebar">
-                            <a href="/About/Index">
-                                <i class="bi bi-card-text"></i>
-                                <span class="menu-text">Hakkımda</span>
-                            </a>
-                        </li>
-                        <li class="sidebar">
-                            <a href="/Home/Index">
-                                <i class="bi bi-globe"></i>
-                                <span class="menu-text">Siteye Git</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+        @await Html.PartialAsync("/Views/AdminLayoutPartial/_NavbarPartial.cshtml")
         <div class="main-container">
-            <div class="page-header">
-                <div class="toggle-sidebar" id="toggle-sidebar"><i class="bi bi-list"></i></div>
-                <div class="header-actions-container">
-                    <ul class="header-actions">
-                        <li class="dropdown">
-                            <a href="#" id="userSettings" class="user-settings" data-toggle="dropdown" aria-haspopup="true">
-                                <span class="user-name d-none d-md-block">Asım Mutlu</span>
-                                <span class="avatar">
-                                    <img src="~/foody2-1.0.0/img/testimonial-2.jpg" alt="Admin Templates">
-                                    <span class="status online"></span>
-                                </span>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="userSettings">
-                                <div class="header-profile-actions">
-                                    <a href="/Profile/Index">Profil</a>
-                                    <a href="/Profile/ProfileSetting">Ayarlar</a>
-                                    <a href="/Home/Index">Çıkış Yap</a>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+            @await Html.PartialAsync("/Views/AdminLayoutPartial/_PageHeaderPartial.cshtml")
             <div class="content-wrapper-scroll">
                 <div class="content-wrapper">
                     @RenderBody()
                 </div>
             </div>
-
         </div>
     </div>
-    <script src="/vivo/design/assets/js/jquery.min.js"></script>
-    <script src="/vivo/design/assets/js/bootstrap.bundle.min.js"></script>
-    <script src="/vivo/design/assets/js/modernizr.js"></script>
-    <script src="/vivo/design/assets/js/moment.js"></script>
-    <script src="/vivo/design/assets/vendor/overlay-scroll/jquery.overlayScrollbars.min.js"></script>
-    <script src="/vivo/design/assets/vendor/overlay-scroll/custom-scrollbar.js"></script>
-    <script src="/vivo/design/assets/js/main.js"></script>
-
+    @await Html.PartialAsync("/Views/AdminLayoutPartial/_ScriptPartial.cshtml")
 </body>

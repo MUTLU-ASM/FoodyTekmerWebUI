@@ -5,8 +5,9 @@ namespace FoodyTekmerWebUI.Models
     public class UserSignInViewModel
     {
         [Required(ErrorMessage ="Lütfen Mail Adresinizi Giriniz!")]
-        public string Email { get; set; }
+        public string username { get; set; }
+
         [Required(ErrorMessage = "Lütfen Şifrenizi Giriniz!")]
-        public string Password { get; set; }
+        public string password { get; set; }
     }
 }

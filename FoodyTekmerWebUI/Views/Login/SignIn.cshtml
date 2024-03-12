@@ -1,4 +1,4 @@
-﻿
+﻿@model FoodyTekmerWebUI.Models.UserSignInViewModel
 @{
     Layout = null;
 }
@@ -41,7 +41,7 @@
 	</div> -->
 	<!-- Loading wrapper end -->
 	<!-- Login box start -->
-	<form action="index.html">
+	<form method="post">
 		<div class="login-box">
 			<div class="login-form">
 				<a href="index.html" class="login-logo">
@@ -52,14 +52,16 @@
 				</div>
 				<div class="mb-3">
 					<label class="form-label">Mail Adresiniz</label>
-					<input type="text" class="form-control">
+					<input type="text" class="form-control" asp-for="username">
+					<span asp-validation-for="username"></span>
 				</div>
 				<div class="mb-3">
 					<div class="d-flex justify-content-between">
 						<label class="form-label">Şifreniz</label>
 						<a href="forgot-password.html" class="btn-link ml-auto">Şifremi Unuttum</a>
 					</div>
-					<input type="password" class="form-control">
+					<input type="password" class="form-control" asp-for="password">
+					<span asp-validation-for="password"></span>
 				</div>
 				<div class="login-form-actions">
 					<button type="submit" class="btn">
