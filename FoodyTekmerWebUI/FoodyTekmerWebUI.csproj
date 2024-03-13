@@ -890,4 +890,8 @@
     <ProjectReference Include="..\FoodyTekmerEntityLayer\FoodyTekmerEntityLayer.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\userimages\" />
+  </ItemGroup>
+
 </Project>

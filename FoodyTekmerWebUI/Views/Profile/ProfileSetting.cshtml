@@ -3,7 +3,7 @@
     ViewData["Title"] = "ProfileSetting";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-<form method="post">
+<form method="post" enctype="multipart/form-data">
 <div class="content-wrapper-scroll">
 
 	<!-- Content wrapper start -->
@@ -73,9 +73,8 @@
 									<div class="col-xxl-4 col-sm-6 col-12">
 										<!-- Form Field Start -->
 										<div class="mb-3">
-											<label for="enterPassword" class="form-label">Resim</label>
-											<input type="password" class="form-control" id="enterPassword"
-												   placeholder="Resim">
+											<label for="enterPassword" class="form-label">Resim Seçin</label>
+											<input type="file" class="form-control" asp-for="Image">
 										</div>
 									</div>
 								</div>
