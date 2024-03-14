@@ -18,7 +18,7 @@ namespace FoodyTekmerBusinessLayer.Concrete
             _productDal = productDal;
         }
 
-        public List<Product> GetListCategory()
+        public List<Product> TGetListCategory()
         {
             return _productDal.GetListCategory();
         }
