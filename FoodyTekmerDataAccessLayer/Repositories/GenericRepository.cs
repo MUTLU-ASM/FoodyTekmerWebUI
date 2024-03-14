@@ -3,6 +3,7 @@ using FoodyTekmerDataAccessLayer.Context;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -23,6 +24,11 @@ namespace FoodyTekmerDataAccessLayer.Repositories
             var value= context.Set<T>().Find(id);
             context.Set<T>().Remove(value);
             context.SaveChanges();
+        }
+
+        public List<T> GetListByFilter(Expression<Func<T, bool>> filter)
+        {
+            return context.Set<T>().Where(filter).ToList();
         }
 
         public List<T> GetAllList()

@@ -9,5 +9,6 @@ namespace FoodyTekmerDataAccessLayer.Abstract
 {
     public interface IProductDal:IGenericDal<Product>
     {
+        List<Product> GetListCategory();
     }
 }

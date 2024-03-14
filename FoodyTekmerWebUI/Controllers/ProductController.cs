@@ -18,7 +18,7 @@ namespace FoodyTekmerWebUI.Controllers
         }
         public IActionResult Index(int page = 1)
         {
-            var values = _productService.TGetAllList().ToPagedList(page, 5);
+            var values = _productService.TGetListCategory().ToPagedList(page, 5);
             return View(values);
         }
         [HttpGet]

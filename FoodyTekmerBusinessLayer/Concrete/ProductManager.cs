@@ -18,6 +18,11 @@ namespace FoodyTekmerBusinessLayer.Concrete
             _productDal = productDal;
         }
 
+        public List<Product> GetListCategory()
+        {
+            return _productDal.GetListCategory();
+        }
+
         public void TAdd(Product entity)
         {
             if (entity.Name!="" && entity.Name.Length >=3 && entity.NewPrice>0)

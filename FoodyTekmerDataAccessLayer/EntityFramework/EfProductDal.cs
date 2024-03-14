@@ -1,6 +1,8 @@
 ﻿using FoodyTekmerDataAccessLayer.Abstract;
+using FoodyTekmerDataAccessLayer.Context;
 using FoodyTekmerDataAccessLayer.Repositories;
 using FoodyTekmerEntityLayer.Concrete;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,5 +13,12 @@ namespace FoodyTekmerDataAccessLayer.EntityFramework
 {
     public class EfProductDal:GenericRepository<Product>,IProductDal
     {
+        public List<Product> GetListCategory()
+        {
+            using (var context = new FoodyContext())
+            {
+                return context.Products.Include(x => x.Category).ToList();
+            }
+        }
     }
 }
