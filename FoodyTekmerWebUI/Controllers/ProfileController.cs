@@ -2,6 +2,7 @@
 using FoodyTekmerWebUI.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json.Linq;
 
 namespace FoodyTekmerWebUI.Controllers
 {
@@ -28,7 +29,6 @@ namespace FoodyTekmerWebUI.Controllers
             userEditViewModel.phoneNumber = values.PhoneNumber;
             userEditViewModel.mail = values.Email;
             userEditViewModel.imageUrl = values.ImageUrl;
-            ViewBag.img = values.ImageUrl;
             return View(userEditViewModel);
         }
         [HttpPost]
@@ -50,6 +50,7 @@ namespace FoodyTekmerWebUI.Controllers
             user.Email = u.mail;
             user.PhoneNumber = u.phoneNumber;
             user.PasswordHash = _userManager.PasswordHasher.HashPassword(user, u.password);
+            user.ImageUrl = (u.Image == null) ? "/userimages/Null_User_Icon.png" : u.Image.FileName;
             var result = await _userManager.UpdateAsync(user);
             if (result.Succeeded)
             {
