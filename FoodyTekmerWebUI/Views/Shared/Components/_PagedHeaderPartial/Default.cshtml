@@ -4,12 +4,12 @@
         <ul class="header-actions">
             <li class="dropdown">
                 <a href="#" id="userSettings" class="user-settings" data-toggle="dropdown" aria-haspopup="true">
-                    <i class="bi bi-person-lines-fill fs-2"></i>
-@*                     <span class="user-name d-none d-md-block"></span>
+                    @* <i class="bi bi-person-lines-fill fs-2"></i> *@
+                    <span class="user-name d-none d-md-block">@ViewBag.userName</span>
                     <span class="avatar">
-                        <img src="~/foody2-1.0.0/img/testimonial-2.jpg" alt="Admin Templates">
+                        <img src="@ViewBag.userImg" alt="Admin Profile">
                         <span class="status online"></span>
-                    </span> *@
+                    </span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="userSettings">
                     <div class="header-profile-actions">

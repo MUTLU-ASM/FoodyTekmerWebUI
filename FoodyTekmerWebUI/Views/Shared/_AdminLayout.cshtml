@@ -8,7 +8,7 @@
     <div class="page-wrapper">
         @await Html.PartialAsync("/Views/AdminLayoutPartial/_NavbarPartial.cshtml")
         <div class="main-container">
-            @await Html.PartialAsync("/Views/AdminLayoutPartial/_PageHeaderPartial.cshtml")
+            @await Component.InvokeAsync("_PagedHeaderPartial")
             <div class="content-wrapper-scroll">
                 <div class="content-wrapper">
                     @RenderBody()
