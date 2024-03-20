@@ -1,5 +1,6 @@
 using FoodyTekmerBusinessLayer.Abstract;
 using FoodyTekmerBusinessLayer.Concrete;
+using FoodyTekmerBusinessLayer.Container;
 using FoodyTekmerDataAccessLayer.Abstract;
 using FoodyTekmerDataAccessLayer.Context;
 using FoodyTekmerDataAccessLayer.EntityFramework;
@@ -10,23 +11,7 @@ using Microsoft.AspNetCore.Mvc.Authorization;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddScoped<IProductDal, EfProductDal>();
-builder.Services.AddScoped<IProductService, ProductManager>();
-
-builder.Services.AddScoped<ITestimonialDal, EfTestimonialDal>();
-builder.Services.AddScoped<ITestimonialService, TestimonialManager>();
-
-builder.Services.AddScoped<IAboutDal, EfAboutDal>();
-builder.Services.AddScoped<IAboutService, AboutManager>();
-
-builder.Services.AddScoped<IContactDal, EfContactDal>();
-builder.Services.AddScoped<IContactService, ContactManager>();
-
-builder.Services.AddScoped<ICategoryDal, EfCategoryDal>();
-builder.Services.AddScoped<ICategoryService, CategoryManager>();
-
-builder.Services.AddScoped<IAdminDal, EfAdminDal>();
-builder.Services.AddScoped<IAdminService, AdminManager>();
+builder.Services.ContainerDependencies();
 
 builder.Services.AddDbContext<FoodyContext>();
 
