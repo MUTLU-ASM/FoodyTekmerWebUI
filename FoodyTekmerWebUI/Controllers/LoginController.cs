@@ -68,8 +68,9 @@ namespace FoodyTekmerWebUI.Controllers
 				}
 				else
 				{
-					return RedirectToAction("SignIn", "Login");
-				}
+                    ModelState.AddModelError(string.Empty, "Geçersiz giriş ! Lütfen tekrar deneyiniz.");
+                    return View(u);
+                }
 			}
 			return View();
 		}

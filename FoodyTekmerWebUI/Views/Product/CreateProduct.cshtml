@@ -13,7 +13,7 @@
                 <input type="text" class="form-control border" asp-for="Name">
                 <br />
                 <label>Kategori</label>
-                <input type="text" class="form-control border" asp-for="CategoryId">
+                @Html.DropDownListFor(x => x.CategoryId, (List<SelectListItem>)ViewBag.categoryList, new { @class = "form-control" })
                 <br />
                 <label>Görsel Url</label>
                 <input type="text" class="form-control border" asp-for="ImageUrl">

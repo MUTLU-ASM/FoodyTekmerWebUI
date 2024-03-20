@@ -11,19 +11,28 @@ namespace FoodyTekmerWebUI.Controllers
     public class ProductController : Controller
     {
         private readonly IProductService _productService;
+        private readonly ICategoryService _categoryService;
 
-        public ProductController(IProductService productService)
+        public ProductController(IProductService productService, ICategoryService categoryService)
         {
             _productService = productService;
+            _categoryService = categoryService;
         }
         public IActionResult Index(int page = 1)
         {
-            var values = _productService.TGetListCategory().ToPagedList(page, 5);
+            var values = _productService.TGetListCategory().ToPagedList(page, 7);
             return View(values);
         }
         [HttpGet]
         public IActionResult CreateProduct()
         {
+            List<SelectListItem> categoryList = (from x in _categoryService.TGetAllList()
+                                                 select new SelectListItem
+                                                 {
+                                                     Text = x.CategoryName,
+                                                     Value = x.CategoryId.ToString()
+                                                 }).ToList();
+            ViewBag.categoryList = categoryList;
             return View();
         }
         [HttpPost]
