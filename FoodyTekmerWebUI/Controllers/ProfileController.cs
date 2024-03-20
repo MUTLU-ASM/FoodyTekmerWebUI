@@ -26,6 +26,7 @@ namespace FoodyTekmerWebUI.Controllers
             UserEditViewModel userEditViewModel = new UserEditViewModel();
             userEditViewModel.name = values.Name;
             userEditViewModel.surName = values.Surname;
+            userEditViewModel.userName = values.UserName;
             userEditViewModel.phoneNumber = values.PhoneNumber;
             userEditViewModel.mail = values.Email;
             userEditViewModel.imageUrl = values.ImageUrl;
@@ -45,12 +46,16 @@ namespace FoodyTekmerWebUI.Controllers
                 await u.Image.CopyToAsync(stream);
                 user.ImageUrl = "/userimages/" + imagename;
             }
-            user.Name = u.name;
+            else
+            {
+				user.ImageUrl = "/userimages/Null_User_Icon.png";
+			}
+			user.Name = u.name;
             user.Surname = u.surName;
             user.Email = u.mail;
+            user.UserName = u.userName;
             user.PhoneNumber = u.phoneNumber;
             user.PasswordHash = _userManager.PasswordHasher.HashPassword(user, u.password);
-            user.ImageUrl = (u.Image == null) ? "/userimages/Null_User_Icon.png" : u.Image.FileName;
             var result = await _userManager.UpdateAsync(user);
             if (result.Succeeded)
             {

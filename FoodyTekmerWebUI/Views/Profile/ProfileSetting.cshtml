@@ -4,95 +4,102 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 <form method="post" enctype="multipart/form-data">
-<div class="content-wrapper-scroll">
+    <div class="content-wrapper-scroll">
 
-	<!-- Content wrapper start -->
-	<div class="content-wrapper">
-		
-		<!-- Row start -->
-		<div class="row">
-			<div class="col-xl-12">
-				<!-- Card start -->
-				<div class="card">
-					<div class="card-body">
+        <!-- Content wrapper start -->
+        <div class="content-wrapper">
 
-						<!-- Row start -->
-						<div class="row">
-							<div class="col-xxl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-								<div class="row">
-									<div class="col-sm-6 col-12">
-										<div class="d-flex flex-row">
-											<img src="@Model.imageUrl" class="img-fluid change-img-avatar" alt="Image">
-										</div>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-xxl-4 col-sm-6 col-12">
-										<!-- Form Field Start -->
-										<div class="mb-3">
-											<label for="fullName" class="form-label">Ad</label>
-											<input type="text" class="form-control" asp-for="name" placeholder="Ad">
-										</div>
-									</div>
-										<div class="col-xxl-4 col-sm-6 col-12">
-											<!-- Form Field Start -->
-											<div class="mb-3">
-												<label for="fullName" class="form-label">Soyad</label>
-												<input type="text" class="form-control" asp-for="surName" placeholder="Ad">
-											</div>
-										</div>
-									<div class="col-xxl-4 col-sm-6 col-12">
-										<!-- Form Field Start -->
-										<div class="mb-3">
-											<label for="emailID" class="form-label">Mail</label>
-											<input type="email" class="form-control" asp-for="mail" id="emailID" placeholder="reese@gmail.com">
-										</div>
-									</div>
-									<div class="col-xxl-4 col-sm-6 col-12">
-										<!-- Form Field Start -->
-										<div class="mb-3">
-											<label for="phoneNo" class="form-label">Telefon</label>
-											<input type="number" class="form-control" asp-for="phoneNumber" placeholder="123-456-7890">
-										</div>
-									</div>
-									<div class="col-xxl-4 col-sm-6 col-12">
-										<!-- Form Field Start -->
-										<div class="mb-3">
-											<label for="Country" class="form-label">Şifre</label>
-											<input type="text" class="form-control" asp-for="password"  placeholder="Şifreniz">
-										</div>
-									</div>
-									<div class="col-xxl-4 col-sm-6 col-12">
-										<!-- Form Field Start -->
-										<div class="mb-3">
-											<label for="enterPassword" class="form-label">Şifre Tekrar</label>
-											<input type="password" class="form-control" asp-for="confirmPassword" id="enterPassword"
-												   placeholder="Tekrar Şifreniz">
-										</div>
-									</div>
-									<div class="col-xxl-4 col-sm-6 col-12">
-										<!-- Form Field Start -->
-										<div class="mb-3">
-											<label for="enterPassword" class="form-label">Resim Seçin</label>
-											<input type="file" class="form-control" asp-for="Image">
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-sm-12 col-12">
-								<hr>
-								<button class="btn btn-info">Ayarları Kaydet</button>
-							</div>
-						</div>
-						<!-- Row end -->
+            <!-- Row start -->
+            <div class="row">
+                <div class="col-xl-12">
+                    <!-- Card start -->
+                    <div class="card">
+                        <div class="card-body">
 
-					</div>
-				</div>
-				<!-- Card end -->
-			</div>
-		</div>
-		<!-- Row end -->
+                            <!-- Row start -->
+                            <div class="row">
+                                <div class="col-xxl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                    <div class="row">
+                                        <div class="col-sm-6 col-12">
+                                            <div class="d-flex flex-row">
+                                                <img src="@Model.imageUrl" class="img-fluid change-img-avatar" alt="Image">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xxl-4 col-sm-6 col-12">
+                                            <!-- Form Field Start -->
+                                            <div class="mb-3">
+                                                <label for="fullName" class="form-label">Ad</label>
+                                                <input type="text" class="form-control" asp-for="name" placeholder="Ad">
+                                            </div>
+                                        </div>
+                                        <div class="col-xxl-4 col-sm-6 col-12">
+                                            <!-- Form Field Start -->
+                                            <div class="mb-3">
+                                                <label for="fullName" class="form-label">Soyad</label>
+                                                <input type="text" class="form-control" asp-for="surName" placeholder="Ad">
+                                            </div>
+                                        </div>
+                                        <div class="col-xxl-4 col-sm-6 col-12">
+                                            <!-- Form Field Start -->
+                                            <div class="mb-3">
+                                                <label class="form-label">Kullanıcı Adı</label>
+                                                <input type="text" class="form-control" asp-for="userName" placeholder="Ad">
+                                            </div>
+                                        </div>
+                                        <div class="col-xxl-4 col-sm-6 col-12">
+                                            <!-- Form Field Start -->
+                                            <div class="mb-3">
+                                                <label for="emailID" class="form-label">Mail</label>
+                                                <input type="email" class="form-control" asp-for="mail" id="emailID" placeholder="reese@gmail.com">
+                                            </div>
+                                        </div>
+                                        <div class="col-xxl-4 col-sm-6 col-12">
+                                            <!-- Form Field Start -->
+                                            <div class="mb-3">
+                                                <label for="phoneNo" class="form-label">Telefon</label>
+                                                <input type="number" class="form-control" asp-for="phoneNumber" placeholder="123-456-7890">
+                                            </div>
+                                        </div>
+                                        <div class="col-xxl-4 col-sm-6 col-12">
+                                            <!-- Form Field Start -->
+                                            <div class="mb-3">
+                                                <label for="Country" class="form-label">Şifre</label>
+                                                <input type="password" class="form-control" asp-for="password" placeholder="Şifreniz">
+                                            </div>
+                                        </div>
+                                        <div class="col-xxl-4 col-sm-6 col-12">
+                                            <!-- Form Field Start -->
+                                            <div class="mb-3">
+                                                <label for="enterPassword" class="form-label">Şifre Tekrar</label>
+                                                <input type="password" class="form-control" asp-for="confirmPassword" id="enterPassword"
+                                                       placeholder="Tekrar Şifreniz">
+                                            </div>
+                                        </div>
+                                        <div class="col-xxl-4 col-sm-6 col-12">
+                                            <!-- Form Field Start -->
+                                            <div class="mb-3">
+                                                <label for="enterPassword" class="form-label">Resim Seçin</label>
+                                                <input type="file" class="form-control" asp-for="Image">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-12">
+                                    <hr>
+                                    <button class="btn btn-info">Ayarları Kaydet</button>
+                                </div>
+                            </div>
+                            <!-- Row end -->
 
-	</div>
-	<!-- Content wrapper end -->
+                        </div>
+                    </div>
+                    <!-- Card end -->
+                </div>
+            </div>
+            <!-- Row end -->
+        </div>
+    </div>
+    <!-- Content wrapper end -->
 </form>
