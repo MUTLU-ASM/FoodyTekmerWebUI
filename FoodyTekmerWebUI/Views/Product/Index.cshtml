@@ -4,6 +4,7 @@
 @model IPagedList<FoodyTekmerEntityLayer.Concrete.Product>
 @{
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int sayac = (Model.PageNumber - 1) * Model.PageSize;
 }
 <h2 style="pointer-events: none; user-select: none;">-- Ürün Listesi</h2>
 <div class="card">
@@ -24,8 +25,9 @@
                 </tr>
                 @foreach (var x in Model)
                 {
+                    {sayac++;}
                     <tr>
-                        <th>@x.ProductId</th>
+                        <th>@sayac</th>
                         <td>@x.Name</td>
                         <td>@x.Category.CategoryName</td>
                         <td>@x.OldPrice</td>
