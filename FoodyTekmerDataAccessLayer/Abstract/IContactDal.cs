@@ -9,5 +9,6 @@ namespace FoodyTekmerDataAccessLayer.Abstract
 {
     public interface IContactDal:IGenericDal<Contact>
     {
+        List<Contact> GetListUnreadMessage();
     }
 }

@@ -1,0 +1,30 @@
+﻿@using FoodyTekmerEntityLayer.Concrete
+@model List<Contact>
+
+<div class="col-sm-8 col-12">
+    <div class="card">
+        <div class="card-header">
+            <div class="card-title">Okunmamış Mesajlar - @ViewBag.unreadCount</div>
+        </div>
+        <div class="card-body">
+            <div class="scroll300">
+                <div class="timeline-activity">
+                    @foreach (var x in Model)
+                    {
+                        <div class="activity-log">
+                            <p class="log-name">
+                                @x.NameSurname <small class="log-time">
+                                    -
+                                    @x.dateTime.ToShortDateString()
+                                </small>
+                            </p>
+                            <div class="log-details">
+                                @x.Message
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

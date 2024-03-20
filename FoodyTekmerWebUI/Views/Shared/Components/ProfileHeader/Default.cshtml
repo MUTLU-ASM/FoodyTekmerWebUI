@@ -1,0 +1,41 @@
+﻿@model FoodyTekmerEntityLayer.Concrete.AppUser
+
+<div class="col-sm-12 col-12">
+    <div class="profile-header">
+        <h1>Hoşgeldin, @Model.Name</h1>
+        <div class="profile-header-content">
+            <div class="profile-header-tiles">
+                <div class="row gutters">
+                    <div class="col-sm-4 col-12">
+                        <div class="profile-tile">
+                            <span class="icon">
+                                <i class="bi bi-person"></i>
+                            </span>
+                            <h6>Ad Soyad - <span>@Model.Name @Model.Surname</span></h6>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-12">
+                        <div class="profile-tile">
+                            <span class="icon">
+                                <i class="bi bi-envelope"></i>
+                            </span>
+                            <h6>Mail - <span>@Model.Email</span></h6>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-12">
+                        <div class="profile-tile">
+                            <span class="icon">
+                                <i class="bi bi-telephone"></i>
+                            </span>
+                            <h6>Telefon - <span>@Model.PhoneNumber</span></h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="profile-avatar-tile">
+                <img src="@Model.ImageUrl" class="img-fluid"
+                     alt="Bootstrap Gallery" />
+            </div>
+        </div>
+    </div>
+</div>

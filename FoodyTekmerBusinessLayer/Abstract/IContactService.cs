@@ -9,5 +9,6 @@ namespace FoodyTekmerBusinessLayer.Abstract
 {
     public interface IContactService:IGenericService<Contact>
     {
+        List<Contact> GetListUnreadMessage();
     }
 }

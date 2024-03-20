@@ -13,11 +13,9 @@ namespace FoodyTekmerWebUI.Controllers
         {
             _userManager = userManager;
         }
-		[HttpGet]
-		public async Task<IActionResult> Index()
+		public IActionResult Index()
         {
-			var values = await _userManager.FindByNameAsync(User.Identity.Name);
-			return View(values);
+			return View();
         }
         [HttpGet]
         public async Task<IActionResult> ProfileSetting()

@@ -1,9 +1,9 @@
 ﻿using FoodyTekmerBusinessLayer.Abstract;
 using Microsoft.AspNetCore.Mvc;
 
-namespace FoodyTekmerWebUI.ViewComponents
+namespace FoodyTekmerWebUI.ViewComponents.AdminHome
 {
-    public class AdminHomeProductsComponentPartial:ViewComponent
+    public class AdminHomeProductsComponentPartial : ViewComponent
     {
         private readonly IProductService _productService;
 

@@ -1,89 +1,33 @@
-﻿@model FoodyTekmerEntityLayer.Concrete.AppUser
-
-@{
+﻿@{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
 <div class="row gutters">
-    <div class="col-sm-12 col-12">
-        <div class="profile-header">
-            <h1>Hoşgeldin, @Model.Name</h1>
-            <div class="profile-header-content">
-                <div class="profile-header-tiles">
-                    <div class="row gutters">
-                        <div class="col-sm-4 col-12">
-                            <div class="profile-tile">
-                                <span class="icon">
-                                    <i class="bi bi-person"></i>
-                                </span>
-                                <h6>Ad Soyad - <span>@Model.Name @Model.Surname</span></h6>
-                            </div>
-                        </div>
-                        <div class="col-sm-4 col-12">
-                            <div class="profile-tile">
-                                <span class="icon">
-                                    <i class="bi bi-envelope"></i>
-                                </span>
-                                <h6>Mail - <span>@Model.Email</span></h6>
-                            </div>
-                        </div>
-                        <div class="col-sm-4 col-12">
-                            <div class="profile-tile">
-                                <span class="icon">
-                                    <i class="bi bi-telephone"></i>
-                                </span>
-                                <h6>Telefon - <span>@Model.PhoneNumber</span></h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="profile-avatar-tile">
-                    <img src="@Model.ImageUrl" class="img-fluid"
-                         alt="Bootstrap Gallery" />
-                </div>
+    
+
+    @await Component.InvokeAsync("ProfileHeader")
+
+    @await Component.InvokeAsync("UnreadMessages")
+
+    <div class="col-lg-4 col-sm-12 col-12">  
+        <div class="col-sm-12 col-12">
+            <div class="weather-widget sunny">
+                <h2>16°</h2>
+                <h4>Güneşli</h4>
+                <h6 class="">@DateTime.Now.ToLongDateString() @DateTime.Now.ToShortTimeString()</h6>
+                <p>İstanbul, TR</p>
             </div>
         </div>
-    </div>
-</div>
-<div class="row gutters">
-    <div class="col-sm-4 col-12">
-        <div class="weather-widget cloudy">
-            <h2>12°</h2>
-            <h4>Karlı</h4>
-            <h6 class="">@DateTime.Now.ToLongDateString() @DateTime.Now.ToShortTimeString()</h6>
-            <p>London, UK</p>
-        </div>
-    </div>
-    <div class="col-sm-4 col-12">
-        <div class="weather-widget sunny">
-            <h2>25°</h2>
-            <h4>Güneşli</h4>
-            <h6 class="">@DateTime.Now.ToLongDateString() @DateTime.Now.ToShortTimeString()</h6>
-            <p>İstanbul, TR</p>
+        <div class="col-sm-12 col-12">
+            <div class="weather-widget rainy">
+                <h2>12°</h2>
+                <h4>Yağmurlu</h4>
+                <h6 class="">@DateTime.Now.ToLongDateString() @DateTime.Now.ToShortTimeString()</h6>
+                <p>London, UK</p>
+            </div>
         </div>
     </div>
 
-    <div class="col-lg-4 col-sm-12 col-12">
-        <div class="row gutters">
-            <div class="col-sm-6 col-12">
-                <div class="award-tile shade-green">
-                    <div class="award-icon">
-                        <i class="bi bi-receipt"></i>
-                    </div>
-                    <h3>15</h3>
-                    <h4>Ürünler</h4>
-                </div>
-            </div>
-            <div class="col-sm-6 col-12">
-                <div class="award-tile shade-blue">
-                    <div class="award-icon">
-                        <i class="bi bi-gem"></i>
-                    </div>
-                    <h3>7</h3>
-                    <h4>Kategoriler</h4>
-                </div>
-            </div>
-        </div>
-    </div>
+
 </div>

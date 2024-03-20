@@ -1,9 +1,9 @@
 ﻿using FoodyTekmerBusinessLayer.Abstract;
 using Microsoft.AspNetCore.Mvc;
 
-namespace FoodyTekmerWebUI.ViewComponents
+namespace FoodyTekmerWebUI.ViewComponents.AdminHome
 {
-    public class AdminHomeTestimonialComponentPartial:ViewComponent
+    public class AdminHomeTestimonialComponentPartial : ViewComponent
     {
         private readonly ITestimonialService _testimonialService;
 

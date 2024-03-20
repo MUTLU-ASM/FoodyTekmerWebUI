@@ -19,6 +19,11 @@ namespace FoodyTekmerBusinessLayer.Concrete
             _contactDal = contactDal;
         }
 
+        public List<Contact> GetListUnreadMessage()
+        {
+            return _contactDal.GetListUnreadMessage();
+        }
+
         public void TAdd(Contact entity)
         {
             _contactDal.Add(entity);

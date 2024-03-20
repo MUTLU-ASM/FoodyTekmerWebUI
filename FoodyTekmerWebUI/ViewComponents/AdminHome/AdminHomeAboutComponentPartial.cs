@@ -1,7 +1,7 @@
 ﻿using FoodyTekmerBusinessLayer.Abstract;
 using Microsoft.AspNetCore.Mvc;
 
-namespace FoodyTekmerWebUI.ViewComponents
+namespace FoodyTekmerWebUI.ViewComponents.AdminHome
 {
     public class AdminHomeAboutComponentPartial : ViewComponent
     {
