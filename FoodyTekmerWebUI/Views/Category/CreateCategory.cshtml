@@ -2,8 +2,6 @@
 @{
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-
-<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
 <div class="card">
     <div class="card-body">
         <div class="table-responsive">
@@ -14,8 +12,9 @@
                     <h2 style="pointer-events: none; user-select: none;">Kategori Ekleme Sayfası</h2>
                     <br />
                     <label>Kategori Adını Giriniz</label>
-                    <br />
+                    <br /><br />
                     <input type="type" asp-for="CategoryName" class="form-control" />
+                    <span asp-validation-for="CategoryName" class="text-danger"></span>
                     <br />
                     <button class="btn btn-info">Kategori Ekle</button>
                     <a href="/Category/Index" class="btn btn-primary float-right">Vazgeç</a>

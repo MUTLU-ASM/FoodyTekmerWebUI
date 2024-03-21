@@ -11,12 +11,14 @@
             <form method="post">
                 <label>Adı</label>
                 <input type="text" class="form-control border" asp-for="Name">
+                <span asp-validation-for="Name" class="text-danger"></span>
                 <br />
                 <label>Kategori</label>
                 @Html.DropDownListFor(x => x.CategoryId, (List<SelectListItem>)ViewBag.categoryList, new { @class = "form-control" })
                 <br />
                 <label>Görsel Url</label>
                 <input type="text" class="form-control border" asp-for="ImageUrl">
+                <span asp-validation-for="ImageUrl" class="text-danger"></span>
                 <br />
                 <label>Eski Fiyat</label>
                 <input type="text" class="form-control border" asp-for="OldPrice">

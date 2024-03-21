@@ -1,4 +1,7 @@
-﻿using FoodyTekmerDataAccessLayer.Context;
+﻿using FluentValidation.Results;
+using FoodyTekmerBusinessLayer.Abstract;
+using FoodyTekmerBusinessLayer.ValidationRules;
+using FoodyTekmerDataAccessLayer.Context;
 using FoodyTekmerEntityLayer.Concrete;
 using Microsoft.AspNetCore.Mvc;
 using X.PagedList;
@@ -22,9 +25,23 @@ namespace FoodyTekmerWebUI.Controllers
         [HttpPost]
         public IActionResult CreateCategory(Category c)
         {
-            context.Categories.Add(c);
-            context.SaveChanges();
-            return RedirectToAction("Index");
+            CategoryValidator validationRules = new CategoryValidator();
+            ValidationResult result = validationRules.Validate(c);
+            if (result.IsValid)
+            {
+                context.Categories.Add(c);
+                context.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                foreach (var x in result.Errors)
+                {
+                    ModelState.AddModelError(x.PropertyName, x.ErrorMessage);
+                }
+                return View();
+            }
+
         }
         public IActionResult DeleteCategory(int id)
         {

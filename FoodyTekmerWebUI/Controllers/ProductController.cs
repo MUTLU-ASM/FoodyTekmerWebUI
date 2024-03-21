@@ -1,9 +1,12 @@
-﻿using FoodyTekmerBusinessLayer.Abstract;
+﻿using FluentValidation.Results;
+using FoodyTekmerBusinessLayer.Abstract;
+using FoodyTekmerBusinessLayer.ValidationRules;
 using FoodyTekmerDataAccessLayer.Context;
 using FoodyTekmerEntityLayer.Concrete;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using System;
 using X.PagedList;
 
 namespace FoodyTekmerWebUI.Controllers
@@ -38,9 +41,22 @@ namespace FoodyTekmerWebUI.Controllers
         [HttpPost]
         public IActionResult CreateProduct(Product product)
         {
-            product.Status = true;
-            _productService.TAdd(product);
-            return RedirectToAction("Index");
+            ProductValidator validationRules = new ProductValidator();
+            ValidationResult result = validationRules.Validate(product);
+            if (result.IsValid)
+            {
+                product.Status = true;
+                _productService.TAdd(product);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                foreach (var x in result.Errors)
+                {
+                    ModelState.AddModelError(x.PropertyName, x.ErrorMessage);
+                }
+                return View();
+            }
         }
         public IActionResult DeleteProduct(int id)
         {

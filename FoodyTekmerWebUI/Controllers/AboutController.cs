@@ -1,4 +1,7 @@
-﻿using FoodyTekmerBusinessLayer.Abstract;
+﻿using FluentValidation;
+using FluentValidation.Results;
+using FoodyTekmerBusinessLayer.Abstract;
+using FoodyTekmerBusinessLayer.ValidationRules;
 using FoodyTekmerEntityLayer.Concrete;
 using Microsoft.AspNetCore.Mvc;
 using X.PagedList;
@@ -27,8 +30,21 @@ namespace FoodyTekmerWebUI.Controllers
         [HttpPost]
         public IActionResult CreateAbout(About about)
         {
-            _aboutService.TAdd(about);
-            return RedirectToAction("Index");
+            AboutValidator validationRules = new AboutValidator();
+            ValidationResult result = validationRules.Validate(about);
+            if (result.IsValid)
+            {
+                _aboutService.TAdd(about);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                foreach (var x in result.Errors)
+                {
+                    ModelState.AddModelError(x.PropertyName, x.ErrorMessage);
+                }
+                return View();
+            }
         }
         public IActionResult DeleteAbout(int id)
         {
