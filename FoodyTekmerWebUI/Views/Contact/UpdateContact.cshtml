@@ -20,7 +20,7 @@
         <div class="col-sm-12 col-12">
             <div class="card">
                 <div class="card-header">
-                    <h4>Mesaj Güncelleme Sayfası</h4>
+                    <h4>Mesaj Detayı</h4>
                 </div>
                 <div class="card-body">
                     <div class="invoice-container">
@@ -28,7 +28,7 @@
                             <!-- Row start -->
                             <div class="row justify-content-between">
                                 <div class="col-xl-5 col-lg-5 col-md-5 col-sm-5 col-12">
-                                    <a >
+                                    <a>
                                         <img style="width:100px" src="~/foody2-1.0.0/img/logo-1.jpg" alt="Admin Dashboard">
                                     </a>
                                 </div>
@@ -48,7 +48,7 @@
                             <div class="col-sm-12 col-12">
                                 <div class="invoice-details">
                                     <address class="m-0">
-                                        <div class="fs-6">@Model.ContactId - @Model.NameSurname</div>
+                                        <div class="fs-6"> - @Model.NameSurname</div>
                                         <div class="fs-6">@Model.Mail</div>
                                     </address>
 
@@ -70,16 +70,16 @@
                                             <div class="create-offer-container">
                                                 <textarea class="form-control" rows="5" readonly>@Model.Message</textarea>
                                                 <div class="share-thoughts-footer">
-                                                        <a href="#">
-                                                            @if (@Model.Status == true)
-                                                            {
-                                                                <i class="bi bi-eye-fill fs-4 m-3"></i>
-                                                            }
-                                                            else
-                                                            {
-                                                                <i class="bi bi-eye fs-4 m-3"></i>
-                                                            }
-                                                        </a>
+                                                    <a href="#">
+                                                        @if (@Model.Status == true)
+                                                        {
+                                                            <i class="bi bi-eye-fill fs-4 m-3"></i>
+                                                        }
+                                                        else
+                                                        {
+                                                            <i class="bi bi-eye fs-4 m-3"></i>
+                                                        }
+                                                    </a>
                                                 </div>
                                             </div>
 
@@ -95,12 +95,11 @@
                                                 </div>
                                             </div>
                                         </div>
-
                                     </div>
                                     <!-- Row end -->
 </form>
                 </div>
-
+                </div>
             </div>
         </div>
     </div>
