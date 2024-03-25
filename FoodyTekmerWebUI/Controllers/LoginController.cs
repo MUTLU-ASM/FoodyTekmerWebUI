@@ -4,6 +4,7 @@ using FoodyTekmerWebUI.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using NToastNotify;
 
 namespace FoodyTekmerWebUI.Controllers
 {
@@ -12,12 +13,15 @@ namespace FoodyTekmerWebUI.Controllers
     {
 		private readonly UserManager<AppUser> _userManager;
 		private readonly SignInManager<AppUser> _signInManager;
+        IToastNotification _notification;
 
-		public LoginController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager)
+        public LoginController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager,IToastNotification toastNotification)
 		{
 			_userManager = userManager;
 			_signInManager = signInManager;
-		}
+			_notification = toastNotification;
+
+        }
 
 		[HttpGet]
         public IActionResult SignUp()
@@ -39,7 +43,7 @@ namespace FoodyTekmerWebUI.Controllers
 				var result = await _userManager.CreateAsync(appUser, user.Password);
 				if (result.Succeeded)
 				{
-					return RedirectToAction("SignIn");
+                    return RedirectToAction("SignIn");
 				}
 				else
 				{
@@ -47,7 +51,7 @@ namespace FoodyTekmerWebUI.Controllers
 					{
 						ModelState.AddModelError("", x.Description);
 					}
-				}
+                }
 			}
 			return View(user);
 		}
@@ -64,10 +68,11 @@ namespace FoodyTekmerWebUI.Controllers
 				var result = await _signInManager.PasswordSignInAsync(u.username, u.password, false, true);
 				if (result.Succeeded)
 				{
-					return RedirectToAction("Index", "Profile");
+                    return RedirectToAction("Index", "Profile");
 				}
 				else
 				{
+                    _notification.AddErrorToastMessage(message: $"Hatalı giriş");
                     ModelState.AddModelError(string.Empty, "Geçersiz giriş ! Lütfen tekrar deneyiniz.");
                     return View(u);
                 }

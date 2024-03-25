@@ -17,7 +17,12 @@ builder.Services.AddDbContext<FoodyContext>();
 
 // Add services to the container.
 builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<FoodyContext>().AddErrorDescriber<CustomIdentityValidator>().AddEntityFrameworkStores<FoodyContext>();
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews().AddNToastNotifyNoty(new NToastNotify.NotyOptions()
+{
+	ProgressBar=true,
+	Timeout=4000,
+	Theme="mint"
+});
 
 builder.Services.AddMvc(config =>
 {
@@ -29,7 +34,7 @@ builder.Services.AddMvc(config =>
 
 
 var app = builder.Build();
-
+app.UseNToastNotify();
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
