@@ -10,5 +10,6 @@ namespace FoodyTekmerBusinessLayer.Abstract
     public interface IProductService:IGenericService<Product>
     {
         List<Product> TGetListCategory();
+        List<Product> TGetListProductWithAjax(int id);
     }
 }

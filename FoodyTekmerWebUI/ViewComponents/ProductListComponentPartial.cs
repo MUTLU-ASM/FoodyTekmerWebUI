@@ -5,17 +5,9 @@ namespace FoodyTekmerWebUI.ViewComponents
 {
     public class ProductListComponentPartial : ViewComponent
     {
-        private readonly IProductService _productService;
-
-        public ProductListComponentPartial(IProductService productService)
-        {
-            _productService = productService;
-        }
-
         public IViewComponentResult Invoke()
         {
-            var values = _productService.TGetAllList().Where(x=>x.Status==true).Take(8).ToList();
-            return View(values);
+            return View();
         }
     }
 }

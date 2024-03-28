@@ -54,5 +54,10 @@ namespace FoodyTekmerBusinessLayer.Concrete
         {
             _productDal.Update(entity);
         }
+
+        public List<Product> TGetListProductWithAjax(int id)
+        {
+            return _productDal.GetListProductWithAjax(id);
+        }
     }
 }

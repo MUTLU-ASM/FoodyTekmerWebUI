@@ -1,7 +1,5 @@
 ﻿@model List<FoodyTekmerEntityLayer.Concrete.Product>
-@*
-    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-*@
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <div class="container-xxl py-5">
     <div class="container">
@@ -12,36 +10,23 @@
                     <p>Sofralarınıza doğal ve taze lezzetler getirmek için burada! Siz değerli müşterilerimize en kaliteli sebze ve meyveleri sunuyoruz.</p>
                 </div>
             </div>
-            @await Component.InvokeAsync("ProductListCategoryComponentPartial")
+            <div class="col-lg-6 text-start text-lg-end  wow slideInRight" data-wow-delay="0.1s">
+                <ul class="nav nav-pills d-inline-flex justify-content-end mb-5">
+                    <li class="nav-item me-2">
+                        <a class="btn btn-outline-primary border-2 active" data-bs-toggle="pill" id="btngetlistProduct" href="#tab-1">Ürünler</a>
+                        <a class="btn btn-outline-primary border-2 active" data-bs-toggle="pill" id="btngetlistvegetable" href="#tab-1">Sebze</a>
+                        <a class="btn btn-outline-primary border-2 active" data-bs-toggle="pill" id="btngetlistfruit" href="#tab-1">Meyve</a>
+                        <a class="btn btn-outline-primary border-2 active" data-bs-toggle="pill" id="btngetlistmilkproducts" href="#tab-1">Süt ve Süt Ürünleri</a>
+                    </li>
+                </ul>
+            </div>
         </div>
         <div class="tab-content">
             <div id="tab-1" class="tab-pane fade show p-0 active">
-                <div class="row g-4">
-                    @foreach (var x in Model)
-                    {
-                    <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="product-item">
-                            <div class="position-relative bg-light overflow-hidden">
-                                <img class="img-fluid w-100" src="@x.ImageUrl"alt="">
-                                <div class="bg-secondary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">New</div>
-                            </div>
-                            <div class="text-center p-4">
-                                <a class="d-block h5 mb-2" href="">@x.Name</a>
-                                    <span class="text-primary me-1">@x.NewPrice ₺</span>
-                                    <span class="text-body text-decoration-line-through">@x.OldPrice ₺</span>
-                            </div>
-                            <div class="d-flex border-top">
-                                <small class="w-50 text-center border-end py-2">
-                                    <a class="text-body" href=""><i class="fa fa-eye text-primary me-2"></i>Detayı Gör</a>
-                                </small>
-                                <small class="w-50 text-center py-2">
-                                    <a class="text-body" href=""><i class="fa fa-shopping-bag text-primary me-2"></i>Sepete Ekle</a>
-                                </small>
-                            </div>
-                        </div>
+                <div class="row g-4" id="meyveContainer">
+                    <div id="productlist">
+                        <!-- Ajax ile veri tabanından çekilen veriler-->
                     </div>
-                    }
-
                     <div class="col-12 text-center wow fadeInUp" data-wow-delay="0.1s">
                         <a class="btn btn-primary rounded-pill py-3 px-5" href="">Daha Fazla Ürün Görün</a>
                     </div>
@@ -51,4 +36,105 @@
     </div>
 </div>
 
+<script>
+
+    // Function Html Hata Mesajı
+    function showEmptyProductMessage(containerSelector) {
+        $(containerSelector).html(`<div class="alert alert-warning fs-5" role="alert"><i class="bi bi-exclamation-triangle-fill"></i> Herhangi bir ürün bulunamadı.</div>`);
+    }
+    // Function Html Listesi
+    function generateCategoryHTML(category, data) {
+        let html = `<div class="container" id="${category}container">`;
+        html += `<div class="row">`;
+
+        data.forEach(item => {
+            html += `
+                                <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp mb-3" data-wow-delay="0.1s">
+                                    <div class="product-item">
+                                        <div class="position-relative bg-light overflow-hidden">
+                                            <img class="img-fluid w-100" src="${item.ImageUrl}" alt="">
+                                                    <!--<div class="bg-secondary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">New</div>-->
+                                        </div>
+                                        <div class="text-center p-4">
+                                            <a class="d-block h5 mb-2" href="">${item.Name}</a>
+                                            <span class="text-primary me-1">${item.NewPrice} ₺</span>
+                                            <span class="text-body text-decoration-line-through">${item.OldPrice} ₺</span>
+                                        </div>
+                                        <div class="d-flex border-top">
+                                            <small class="w-50 text-center border-end py-2">
+                                                <a class="text-body" href=""><i class="fa fa-eye text-primary me-2"></i>Detayı Gör</a>
+                                            </small>
+                                            <small class="w-50 text-center py-2">
+                                                <a class="text-body" href=""><i class="fa fa-shopping-bag text-primary me-2"></i>Sepete Ekle</a>
+                                            </small>
+                                        </div>
+                                    </div>
+                                </div>`;
+        });
+
+        html += `</div></div>`;
+        return html;
+    }
+
+    // Urun listesini hem sayfa ilk yuklendiginde hem de butona tıklanma durumunda gelmesi icin kod tekrarı yerine bu function olusturuldu.
+    function getProductList() {
+        $.ajax({
+            contentType: "application/json",
+            dataType: "json",
+            type: "Get",
+            url: "/Default/ProductList/",
+            success: function (func) {
+                let productData = jQuery.parseJSON(func);
+                let productHTML = generateCategoryHTML("Ürünlerimiz", productData);
+                $("#productlist").empty(); // Listeyi temizle
+                $("#productlist").html(productHTML);
+            }
+        });
+    }
+
+    // Urun listesini butona tıklanma durumunda listelenen veriyi kod tekrarı yerine bu function olusturuldu ve verilen parametreye(Controller'da ki ismi) göre listeleme gerceklesmektedir.
+    function listWithAjax(controllerName) {
+        $.ajax({
+            contentType: "application/json",
+            dataType: "json",
+            type: "Get",
+            url: `/Default/${controllerName}/`, // Controller ismi buraya ekleniyor
+            success: function (func) {
+                let data = jQuery.parseJSON(func);
+                if (data.length > 0) {
+                    let html = generateCategoryHTML("", data);
+                    $("#productlist").empty(); // Listeyi temizle
+                    $("#productlist").html(html);
+                } else {
+                    showEmptyProductMessage("#productlist");
+                }
+            },
+            error: function () {
+                $("#productlist").html("<p>Ürünler alınırken bir hata oluştu.</p>");
+            }
+        });
+    }
+
+    // Sayfa ilk yüklendiğinde listele
+    $(document).ready(function () {
+        getProductList();
+    });
+
+    // Butona tiklandiginda ürün listesini al
+    $("#btngetlistProduct").click(function () {
+        getProductList("ProductList");
+    });
+    // Butona tiklandiginda sebze listesini al
+    $("#btngetlistvegetable").click(function () {
+        listWithAjax("ProductVegetableList");
+    });
+    // Butona tiklandiginda meyve listesini al
+    $("#btngetlistfruit").click(function () {
+        listWithAjax("ProductFruitList");
+    });
+    // Butona tiklandiginda sut ve sut urunlerini listesini al
+    $("#btngetlistmilkproducts").click(function () {
+        listWithAjax("ProductMilkList");
+    });
+</script>
 
