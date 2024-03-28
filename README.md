@@ -19,6 +19,7 @@ Bu proje, Tuzla Tekmer'de gerçekleştirilen Clean Code, SOLID prensipleri ve De
 - Ajax
 - Alert
 - Bootstrap
+- NToastNotify
 - Clean Code, SOLID prensipleri ve Dependency Injection
 
 ## Projeden Görseller
